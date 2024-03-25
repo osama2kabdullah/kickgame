@@ -1,0 +1,110 @@
+{% style %}
+  .custom-featured-collection-splide-{{ section.id }} .splide__pagination,
+  .custom-featured-collection-splide-{{ section.id }} .splide__arrows{
+    display: none;
+  }
+  .custom-featured-collection-splide-{{ section.id }} .heading h3{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .custom-featured-collection-splide-{{ section.id }} .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  @media only screen and (max-width: 640px){
+    .custom-featured-collection-splide-{{ section.id }} .splide__slide {
+      width: 80% !important;
+    }
+  }
+{% endstyle %}
+
+<div class="splide custom-featured-collection-splide-{{ section.id }}" aria-label="Splide Basic HTML Example">
+  {% assign collection = section.settings.collection %}
+
+  <div class="heading">
+    <h3>{{ collection.title }}</h3>
+    <a href="{{ collection.url }}">View all</a>
+  </div>
+
+  <div class="splide__track">
+    <div class="splide__list">
+      {% for product in collection.products limit: section.settings.products_to_show %}
+        <div class="splide__slide">
+          <div class="custom-product-card">
+            <a href="{{ product.url }}">
+              {{ product.featured_media | image_url: width: 1200 | image_tag: style: 'width: 100%;height: 100%;' }}
+              <div style="padding: 10px;">
+                <h6 style="margin-bottom: 5px;">{{ product.title }}</h6>
+                <span>{{ product.price | money | prepend: 'From ' }}</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    new Splide('.custom-featured-collection-splide-{{ section.id }}', {
+      drag: false,
+      grid: {
+        rows: {{ section.settings.row }},
+        cols: 4,
+        gap : {
+			col: '1px',
+		},
+      },
+      breakpoints: {
+        640: {
+          drag: true,
+          perPage: 1,
+          grid: false,
+        },
+      },
+    }).mount(window.splide.Extensions);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "custom featured product",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "label": "Products to show",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "row",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Row",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom featured product"
+    }
+  ]
+}
+{% endschema %}
