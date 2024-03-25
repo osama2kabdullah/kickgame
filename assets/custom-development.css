@@ -17,8 +17,14 @@
   align-items: center;
 }
 
+@media only screen and (max-width: 1080px){
+  .multi-grid-product-card .multi-grid-product-info {
+    grid-template-columns: 100px 1fr;
+  }
+}
+
 @media only screen and (max-width: 640px){
   .multi-grid-product-card .multi-grid-product-info {
-    grid-template-columns: 155px 1fr;
+    grid-template-columns: 140px 1fr;
   }
 }

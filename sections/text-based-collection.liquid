@@ -1,0 +1,71 @@
+{% style %}
+  .based-collections-{{ section.id }} h1 {
+    color: {{ section.settings.text_color }};
+    display: inline;
+    font-weight: bold;
+  }
+  .based-collections-{{ section.id }} {
+    background: {{ section.settings.bg_color }};
+  }
+  .based-collections-{{ section.id }} .collections-wrapper {
+    width: 90%;
+    margin: auto;
+    padding: 100px 0;
+  }
+  @media only screen and (max-width: 640px){
+  .multi-grid-product-card .collections-wrapper {
+        width: 95%;
+        margin: auto;
+        padding: 80px 0;
+    }
+  }
+{% endstyle %}
+
+{% assign collection_list = section.settings.collection_list %}
+<div class="based-collections-{{ section.id }}">
+  <div class="collections-wrapper">
+    {% for collection in collection_list %}
+      <a href="{{ collection.url }}">
+        <h1>{{ collection.title }}</h1>
+      </a>
+      {% unless forloop.last %}
+        <h1>,</h1>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "text based collections",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections",
+      "limit": 50
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "text color",
+      "default": "#fff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "text based collections"
+    }
+  ]
+}
+{% endschema %}
