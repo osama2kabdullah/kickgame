@@ -963,7 +963,7 @@ summary::-webkit-details-marker {
   }
 
   .grid--3-col-tablet .grid__item {
-    width: calc(19% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
+    width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
   }
 
   .grid--2-col-tablet .grid__item {
