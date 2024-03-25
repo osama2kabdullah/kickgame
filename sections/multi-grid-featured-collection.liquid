@@ -1,0 +1,112 @@
+{% style %}
+  .multi-grid-featured-product-{{ section.id }} .splide__pagination,
+  .multi-grid-featured-product-{{ section.id }} .splide__arrows{
+    display: none;
+  }
+  .multi-grid-featured-product-{{ section.id }} .heading h3{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .multi-grid-featured-product-{{ section.id }} .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+{% endstyle %}
+
+{% assign collection = section.settings.collection %}
+
+<div class="splide multi-grid-featured-product-{{ section.id }}" aria-label="Splide Basic HTML Example">
+
+  <div class="heading">
+    <h3>{{ collection.title }}</h3>
+    <a href="{{ collection.url }}">View all</a>
+  </div>
+
+  <div class="splide__track">
+    <div class="splide__list">
+      {% for product in collection.products %}
+        <div class="splide__slide mobile-width-decrese">
+          <a style="text-decoration: none;" href="{{ product.url }}">
+            <div class="multi-grid-product-card">
+              {{ product.featured_media | image_url: width: 80, height: 80 | image_tag }}
+              <div class="multi-grid-product-info">
+                <span>{{ product.title | truncate: 50 }}</span>
+                <span>{{ product.created_at | date: '%B %d, %Y' }}</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    new Splide('.multi-grid-featured-product-{{ section.id }}', {
+      drag: 'free',
+      grid: {
+        rows: 4,
+        cols: 3,
+        gap: {
+          col: '20px',
+        },
+      },
+      breakpoints: {
+        640: {
+          perPage: 1,
+          drag: true,
+          grid: {
+            rows: 4,
+            cols: 1,
+            gap: {
+              col: '10px',
+            },
+          },
+        },
+      },
+    }).mount(window.splide.Extensions);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "multi grid product",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "label": "Products to show",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "row",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "label": "Row",
+      "default": 2
+    }
+  ],
+  "presets": [
+    {
+      "name": "multi grid product"
+    }
+  ]
+}
+{% endschema %}
