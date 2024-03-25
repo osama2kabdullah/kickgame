@@ -3,7 +3,8 @@
 }
 
 .search__button {
-  right: var(--inputs-border-width);
+  right: 50px;
+  border-right: 1px solid;
   top: var(--inputs-border-width);
 }
 

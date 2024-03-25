@@ -1672,7 +1672,7 @@ details[open] > .share-button__fallback {
 .customer .field input:focus,
 .customer select:focus,
 .localization-form__select:focus.localization-form__select:after {
-  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
+  box-shadow: none;
   outline: 0;
   border-radius: var(--inputs-radius);
 }
@@ -2082,7 +2082,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .modal__content {
   position: absolute;
-  top: 0;
+  top: calc(100% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+  /* top: 0; */
   left: 0;
   right: 0;
   bottom: 0;
@@ -2656,7 +2657,7 @@ menu-drawer + .header__search {
 
 details[open] > .search-modal {
   opacity: 1;
-  animation: animateMenuOpen var(--duration-default) ease;
+  animation: none;
 }
 
 details[open] .modal-overlay {
@@ -2680,18 +2681,33 @@ details[open] .modal-overlay::after {
 
 .search-modal {
   opacity: 0;
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  min-height: calc(100% + var(--inputs-margin-offset) + (2 * var(--inputs-border-width)));
-  height: 100%;
+  border-bottom: 1px solid;
+  min-height: calc(55% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+}
+
+@media screen and (max-width: 960px) {
+  .search-modal {
+    min-height: calc(71.1% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+  }
+}
+@media screen and (max-width: 749px) {
+  .search-modal {
+    min-height: calc(72.7% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+  }
+}
+@media screen and (max-width: 370px) {
+  .search-modal {
+    min-height: calc(62% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+  }
 }
 
 .search-modal__content {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   width: 100%;
   height: 100%;
-  padding: 0 5rem 0 1rem;
+  /* padding: 0 5rem 0 1rem; */
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   position: relative;
 }
@@ -2719,13 +2735,13 @@ details[open] .modal-overlay::after {
   }
 
   .search-modal__content {
-    padding: 0 6rem;
+    padding: 0rem;
   }
 }
 
 @media screen and (min-width: 990px) {
   .search-modal__form {
-    max-width: 74.2rem;
+    max-width: 100%;
   }
 
   .search-modal__close-button {
