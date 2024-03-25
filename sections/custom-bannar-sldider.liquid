@@ -1,0 +1,96 @@
+{% style %}
+  .desktop-bannar-splide-{{ section.id }} {
+    display: block;
+  }
+  .mobile-bannar-splide-{{ section.id }} {
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .desktop-bannar-splide-{{ section.id }} {
+      display: none;
+    }
+    .mobile-bannar-splide-{{ section.id }} {
+      display: block;
+    }
+  }
+{% endstyle %}
+
+<div class="splide desktop-bannar-splide-{{ section.id }}" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+    <div class="splide__list">
+      {% for block in section.blocks %}
+        <div class="splide__slide">
+          <a href="{{ block.settings.bannar_link }}">
+            {{ block.settings.desktop_image | image_url: width: 1200, height: 400 | image_tag: style: 'width: 100%;' }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="splide mobile-bannar-splide-{{ section.id }}" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+    <div class="splide__list">
+      {% for block in section.blocks %}
+        <div class="splide__slide">
+          <a href="{{ block.settings.bannar_link }}">
+            {{ block.settings.mobile_image | image_url: width: 1200, height: 400 | image_tag: style: 'width: 100%;' }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var desk_splide = new Splide('.desktop-bannar-splide-{{ section.id }}', {
+      type: 'loop',
+    });
+    var mobile_splide = new Splide('.mobile-bannar-splide-{{ section.id }}', {
+      type: 'loop',
+    });
+    desk_splide.mount();
+    mobile_splide.mount();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "custom bannar slider",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [],
+  "blocks": [
+    {
+      "name": "slide",
+      "type": "slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_image",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "url",
+          "id": "bannar_link",
+          "label": "bannar link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "custom bannar slider"
+    }
+  ]
+}
+{% endschema %}
