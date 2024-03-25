@@ -12,6 +12,20 @@
     margin: auto;
     padding: 100px 0;
   }
+  .based-collections-{{ section.id }} .heading a{
+    color: {{ section.settings.text_color }};
+  }
+  .based-collections-{{ section.id }} .heading h3{
+    color: {{ section.settings.text_color }};
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .based-collections-{{ section.id }} .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
   @media only screen and (max-width: 640px){
   .multi-grid-product-card .collections-wrapper {
         width: 95%;
@@ -23,6 +37,11 @@
 
 {% assign collection_list = section.settings.collection_list %}
 <div class="based-collections-{{ section.id }}">
+  <div class="heading">
+    <h3>{{ section.settings.title }}</h3>
+    <a href="{{ routes.collections_url }}">View all</a>
+  </div>
+
   <div class="collections-wrapper">
     {% for collection in collection_list %}
       <a href="{{ collection.url }}">
@@ -48,6 +67,12 @@
       "id": "collection_list",
       "label": "Collections",
       "limit": 50
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Top collection",
+      "label": "Section title"
     },
     {
       "type": "color",
