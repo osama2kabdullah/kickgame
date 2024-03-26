@@ -4,8 +4,15 @@ class DetailsDisclosure extends HTMLElement {
     this.mainDetailsToggle = this.querySelector('details');
     this.content = this.mainDetailsToggle.querySelector('summary').nextElementSibling;
 
+    this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
+    this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
     this.mainDetailsToggle.addEventListener('mouseenter', this.open.bind(this));
     this.mainDetailsToggle.addEventListener('mouseleave', this.close.bind(this));
+  }
+
+  open() {
+    this.mainDetailsToggle.setAttribute('open', true);
+    this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', true);
   }
 
   open() {
