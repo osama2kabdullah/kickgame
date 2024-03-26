@@ -3,17 +3,22 @@
     color: {{ section.settings.text_color }};
     display: inline;
     font-weight: bold;
-    font-size: 3.75rem;
+    font-size: 5.75rem;
   }
   .based-collections-{{ section.id }} {
     background: {{ section.settings.bg_color }};
+  }
+  .based-collections-{{ section.id }} .collections-wrapper a,
+  .based-collections-{{ section.id }} .collections-wrapper a:active{
+    text-decoration: none;
   }
   .based-collections-{{ section.id }} .collections-wrapper {
     width: 90%;
     margin: auto;
     padding: 100px 0;
   }
-  .based-collections-{{ section.id }} .heading a{
+  .based-collections-{{ section.id }} .heading a,
+  .based-collections-{{ section.id }} .heading a:active{
     color: {{ section.settings.text_color }};
     letter-spacing: .025em;
     font-size: 1.375rem;

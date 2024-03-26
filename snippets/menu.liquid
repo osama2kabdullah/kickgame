@@ -28,6 +28,7 @@
                   {%- if link.child_active %}
                     class="header__active-menu-item"
                   {% endif %}
+                  style="font-size: 2.1rem;"
                 >
                   {{- block.settings.menu_title | escape -}}
                 </span>
@@ -142,6 +143,7 @@
                   {%- if link.child_active %}
                     class="header__active-menu-item"
                   {% endif %}
+                  style="font-size: 2.1rem;"
                 >
                   {{- block.settings.menu_title | escape -}}
                 </span>
@@ -430,6 +432,7 @@
                 {%- if link.current %}
                   class="header__active-menu-item"
                 {% endif %}
+                style="font-size: 2.1rem;color: {{ section.settings.text_color }};"
               >
                 {{- block.settings.linklist_title | escape -}}
               </span>
