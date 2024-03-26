@@ -196,13 +196,7 @@
     {%- endif -%}
 
     {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
+      render 'menu'
     %}
 
     {%- if section.settings.logo_position == 'middle-center' -%}
@@ -499,7 +493,6 @@
 {
   "name": "t:sections.header.name",
   "class": "section-header",
-  "max_blocks": 3,
   "settings": [
     {
       "type": "select",
@@ -683,6 +676,74 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "list_menu",
+      "name": "list menu",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }        
+      ]
+    },
+    {
+      "type": "mega_menu",
+      "name": "mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "first_linklist_title",
+          "label": "First Menu Heading",
+          "default": "Quick links"
+        },        
+        {
+          "type": "link_list",
+          "id": "first_menu",
+          "label": "First Menu"
+        },
+        {
+          "type": "text",
+          "id": "second_linklist_title",
+          "label": "Second Menu Heading",
+          "default": "Quick links"
+        },         
+        {
+          "type": "link_list",
+          "id": "second_menu",
+          "label": "Second Menu"
+        },
+        {
+          "type": "text",
+          "id": "third_linklist_title",
+          "label": "Third Menu Heading",
+          "default": "Quick links"
+        },
+        {
+          "type": "product_list",
+          "id": "product_list",
+          "label": "Products",
+          "limit": 8
+        }                
+      ]
+    },
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "linklist_title",
+          "label": "Link url",
+          "default": "Quick links"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link label"
+        }        
+      ]
     }
   ]
 }
