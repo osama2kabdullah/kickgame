@@ -8,9 +8,9 @@
       endif
     endif
   endcomment
-  assign details_design = "position: absolute;left: 100%;background: rgb(var(--color-background));top: 0;width: max-content;border: 1px solid;"
-  assign details_position = "padding: 0 3rem;position: relative;"
-  assign details_single_link = "padding: 20px 3rem;padding-bottom: 0;"
+  assign details_design = 'position: absolute;left: 100%;background: rgb(var(--color-background));top: 0;width: max-content;border: 1px solid;'
+  assign details_position = 'padding: 0 3rem;position: relative;'
+  assign details_single_link = 'padding: 20px 3rem;padding-bottom: 0;'
 %}
 
 <nav class="header__inline-menu">
@@ -41,7 +41,10 @@
               >
                 {% for link in block.settings.menu.links %}
                   {%- if link.links != blank -%}
-                    <details style="padding: 0 10px;position: relative;" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                    <details
+                      style="padding: 0 10px;position: relative;"
+                      id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}"
+                    >
                       <summary
                         id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
                         class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -56,7 +59,10 @@
                       >
                         {%- for childlink in link.links -%}
                           {%- if childlink.links != blank -%}
-                            <details style="padding: 0 10px;position: relative;" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                            <details
+                              style="padding: 0 10px;position: relative;"
+                              id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
+                            >
                               <summary
                                 id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                 class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -160,7 +166,10 @@
                     <ul class="list-unstyled" role="list">
                       {% for link in block.settings.first_menu.links %}
                         {%- if link.links != blank -%}
-                          <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                          <details
+                            style="{{ details_position }}"
+                            id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}"
+                          >
                             <summary
                               style="padding-left: 0;padding-bottom: 0px;padding-top: 0px;margin-top: 20px;"
                               id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
@@ -176,7 +185,10 @@
                             >
                               {%- for childlink in link.links -%}
                                 {%- if childlink.links != blank -%}
-                                  <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                                  <details
+                                    style="{{ details_position }}"
+                                    id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
+                                  >
                                     <summary
                                       id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -255,7 +267,10 @@
                     <ul class="list-unstyled" role="list">
                       {% for link in block.settings.second_menu.links %}
                         {%- if link.links != blank -%}
-                          <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                          <details
+                            style="{{ details_position }}"
+                            id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}"
+                          >
                             <summary
                               style="padding-left: 0;padding-bottom: 0px;padding-top: 0px;margin-top: 20px;"
                               id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
@@ -271,7 +286,10 @@
                             >
                               {%- for childlink in link.links -%}
                                 {%- if childlink.links != blank -%}
-                                  <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                                  <details
+                                    style="{{ details_position }}"
+                                    id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
+                                  >
                                     <summary
                                       id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -340,7 +358,7 @@
                     </ul>
                   </li>
 
-                  <li>
+                  <li style="grid-column: span 4;">
                     <span
                       id="HeaderMenu-{{ forloop.index }}-3"
                       class="mega-menu__link mega-menu__link--level-2 link"
@@ -348,7 +366,51 @@
                       {{ block.settings.third_linklist_title | escape }}
                     </span>
                     <ul class="list-unstyled" role="list">
-                      <!-- Products -->
+
+                      <ul
+                        id="predictive-search-results-products-list"
+                        class="predictive-search__results-list list-unstyled"
+                        role="group"
+                        aria-labelledby="predictive-search-products"
+                      >
+                        {% for product in block.settings.product_list %}
+                          <li
+                            id="predictive-search-option-product-{{ forloop.index }}"
+                            class="predictive-search__list-item"
+                            role="option"
+                            aria-selected="false"
+                          >
+                            <a
+                              href="{{ product.url }}"
+                              class="predictive-search__item predictive-search__item--link-with-thumbnail link link--text"
+                              tabindex="-1"
+                            >
+                              {%- if product.featured_media != blank -%}
+                                <img
+                                  class="predictive-search__image"
+                                  src="{{ product.featured_media | image_url: width: 150 }}"
+                                  alt="{{ product.featured_media.alt }}"
+                                  width="100"
+                                  height="{{ 100 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                                >
+                              {%- endif -%}
+                              <div class="predictive-search__item-content{% unless settings.predictive_search_show_vendor or settings.predictive_search_show_price %} predictive-search__item-content--centered{% endunless %}">
+                                {%- if settings.predictive_search_show_vendor -%}
+                                  <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                                  <div class="predictive-search__item-vendor caption-with-letter-spacing">
+                                    {{ product.vendor }}
+                                  </div>
+                                {%- endif -%}
+                                <p class="predictive-search__item-heading h5">{{ product.title | escape }}</p>
+                                {%- if settings.predictive_search_show_price -%}
+                                  {% render 'price', product: product, use_variant: true, show_badges: false %}
+                                {%- endif -%}
+                              </div>
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+
                     </ul>
                   </li>
                 </ul>
