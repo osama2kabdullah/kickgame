@@ -317,7 +317,7 @@ quick-order-list-remove-button:hover .icon-remove {
 
 .quick-order-list-total__info quick-order-list-remove-all-button:hover {
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
 }
 
 .variant-remove-total {

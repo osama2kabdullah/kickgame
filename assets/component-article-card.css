@@ -43,7 +43,7 @@
 }
 
 .article-card__link {
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
 }
 
 .article-card .card__heading {

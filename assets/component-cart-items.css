@@ -86,7 +86,7 @@ cart-items .title-wrapper-with-link {
 
 .cart-item__name:hover {
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
   text-decoration-thickness: 0.2rem;
 }
 

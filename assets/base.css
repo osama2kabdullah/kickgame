@@ -508,7 +508,7 @@ h6:empty {
   border: none;
   box-shadow: none;
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
   color: rgb(var(--color-link));
   background-color: transparent;
   font-size: 1.4rem;
@@ -612,7 +612,7 @@ details > * {
 .underlined-link,
 .customer a,
 .inline-richtext a {
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
   text-decoration-thickness: 0.1rem;
   transition: text-decoration-thickness ease 100ms;
 }
@@ -1427,7 +1427,7 @@ details[open] > .share-button__fallback {
 
 .share-button__button:hover {
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
 }
 
 .share-button__button,
@@ -2853,8 +2853,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
 }
 
 details[open] > .header__menu-item {
@@ -2873,7 +2872,7 @@ details[open] > .header__menu-item .icon-caret {
   transition: text-decoration-thickness var(--duration-short) ease;
   color: rgb(var(--color-foreground));
   text-decoration: underline;
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
 }
 
 .header__menu-item:hover .header__active-menu-item {
@@ -3219,7 +3218,7 @@ details-disclosure > details {
 
 .rte a {
   color: rgba(var(--color-link), var(--alpha-link));
-  text-underline-offset: 0.3rem;
+  text-underline-offset: -9999999999px;
   text-decoration-thickness: 0.1rem;
   transition: text-decoration-thickness var(--duration-short) ease;
 }
