@@ -6,6 +6,8 @@ class DetailsDisclosure extends HTMLElement {
 
     this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
     this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
+    this.mainDetailsToggle.addEventListener('mouseenter', this.open.bind(this));
+    this.mainDetailsToggle.addEventListener('mouseleave', this.close.bind(this));
   }
 
   onFocusOut() {
@@ -22,6 +24,11 @@ class DetailsDisclosure extends HTMLElement {
     } else {
       this.animations.forEach((animation) => animation.cancel());
     }
+  }
+
+  open() {
+    this.mainDetailsToggle.setAttribute('open', true);
+    this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', true);
   }
 
   close() {
