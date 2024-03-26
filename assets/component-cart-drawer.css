@@ -54,6 +54,17 @@ cart-drawer.is-empty .drawer__inner {
 cart-drawer.is-empty .drawer__header {
   display: none;
 }
+.empty_drawer__header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid;
+  height: 5rem;
+  left: 0;
+  padding-left: 1rem;
+  padding-top: 8px;
+}
 
 cart-drawer:not(.is-empty) .cart-drawer__warnings,
 cart-drawer:not(.is-empty) .cart-drawer__collection {
@@ -85,7 +96,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   display: inline-block;
   padding: 0;
   min-width: 4.4rem;
-  min-height: 100%;
+  min-height: 5.1rem;
   box-shadow: 0 0 0 0.2rem rgba(var(--color-button), 0);
   position: absolute;
   top: 0px;

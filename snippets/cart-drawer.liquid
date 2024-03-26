@@ -30,8 +30,9 @@
       {%- if cart == empty -%}
         <div class="drawer__inner-empty">
           <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
-            <div class="cart-drawer__empty-content">
-              <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
+            
+            <div class="empty_drawer__header">
+              <h2 class="drawer__heading">Your cart</h2>
               <button
                 class="drawer__close"
                 type="button"
@@ -40,6 +41,13 @@
               >
                 {% render 'icon-close' %}
               </button>
+            </div>
+
+            <div class="cart-drawer__empty-content">
+
+              
+              <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
+
               <a href="{{ routes.all_products_collection_url }}" class="button">
                 {{ 'general.continue_shopping' | t }}
               </a>
@@ -50,6 +58,7 @@
                   {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
                 </p>
               {%- endif -%}
+
             </div>
           </div>
           {%- if settings.cart_drawer_collection != blank -%}
