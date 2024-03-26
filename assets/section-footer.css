@@ -119,6 +119,10 @@
   border-right: 0px solid;
 }
 
+.footer-block .list-menu__item {
+  padding: 0;
+}
+
 .footer-block {
   padding: 0px 20px;
   border-right: 0px solid;

@@ -3,6 +3,7 @@
     color: {{ section.settings.text_color }};
     display: inline;
     font-weight: bold;
+    font-size: 3.75rem;
   }
   .based-collections-{{ section.id }} {
     background: {{ section.settings.bg_color }};
@@ -14,11 +15,15 @@
   }
   .based-collections-{{ section.id }} .heading a{
     color: {{ section.settings.text_color }};
+    letter-spacing: .025em;
+    font-size: 1.375rem;
   }
   .based-collections-{{ section.id }} .heading h3{
     color: {{ section.settings.text_color }};
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: .025em;
+    font-size: 1.375rem;
   }
   .based-collections-{{ section.id }} .heading {
     display: flex;
@@ -27,10 +32,16 @@
     padding: 10px;
   }
   @media only screen and (max-width: 640px){
-  .multi-grid-product-card .collections-wrapper {
-        width: 95%;
-        margin: auto;
-        padding: 80px 0;
+    .multi-grid-product-card .collections-wrapper {
+      width: 95%;
+      margin: auto;
+      padding: 80px 0;
+    }
+    .based-collections-{{ section.id }} h1 {
+      color: {{ section.settings.text_color }};
+      display: inline;
+      font-weight: bold;
+      font-size: 1.875rem;
     }
   }
 {% endstyle %}

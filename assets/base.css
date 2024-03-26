@@ -1,8 +1,17 @@
+@font-face {
+  font-family: 'BR Hendrix Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('BR Hendrix Regular'), url('./BRHendrix-Regular-BF6556d1b5096f9.woff') format('woff');
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
+  --font-body-family: 'BR Hendrix Regular';
+  --font-heading-family: 'BR Hendrix Regular';
 }
 
 .product-card-wrapper .card,
