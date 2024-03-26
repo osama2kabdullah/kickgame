@@ -58,3 +58,34 @@ class HeaderMenu extends DetailsDisclosure {
 }
 
 customElements.define('header-menu', HeaderMenu);
+
+class DetailsHover {
+  constructor(selector) {
+    this.detailsElements = document.querySelectorAll(selector);
+    this.attachEvents();
+  }
+  attachEvents() {
+    this.detailsElements.forEach((detailsElement) => {
+      const summaryElement = detailsElement.querySelector("summary");
+
+      detailsElement.addEventListener("mouseenter", () => {
+        detailsElement.setAttribute("open", true);
+      });
+
+      detailsElement.addEventListener("mouseleave", () => {
+        detailsElement.removeAttribute("open");
+      });
+
+      detailsElement.addEventListener("mouseover", () => {
+        detailsElement.setAttribute("open", true);
+      });
+
+      detailsElement.addEventListener("mouseout", (event) => {
+        if (!detailsElement.contains(event.relatedTarget)) {
+          detailsElement.removeAttribute("open");
+        }
+      });
+    });
+  }
+}
+const detailsHover = new DetailsHover(".header__inline-menu details");

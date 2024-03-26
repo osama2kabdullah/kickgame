@@ -8,7 +8,7 @@
   border-radius: 0;
   border-right: 0;
   left: 0;
-  overflow-y: auto;
+  overflow-y: unset;
   position: absolute;
   right: 0;
   top: 100%;
@@ -34,7 +34,7 @@
 }
 
 .mega-menu__list > li {
-  padding: 3rem;
+  padding: 3rem 0;
   border-top: 1px solid;
   border-right: 0px solid;
 }
@@ -61,6 +61,7 @@
 
 .mega-menu__link--level-2 {
   font-weight: bold;
+  padding: 0 3rem;
 }
 
 .header--top-center .mega-menu__list {

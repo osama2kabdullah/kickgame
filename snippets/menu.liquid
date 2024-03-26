@@ -8,6 +8,9 @@
       endif
     endif
   endcomment
+  assign details_design = "position: absolute;left: 100%;background: rgb(var(--color-background));top: 0;width: max-content;border: 1px solid;"
+  assign details_position = "padding: 0 3rem;position: relative;"
+  assign details_single_link = "padding: 20px 3rem;padding-bottom: 0;"
 %}
 
 <nav class="header__inline-menu">
@@ -38,7 +41,7 @@
               >
                 {% for link in block.settings.menu.links %}
                   {%- if link.links != blank -%}
-                    <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                    <details style="padding: 0 10px;position: relative;" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
                       <summary
                         id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
                         class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -47,12 +50,13 @@
                         {% render 'icon-caret' %}
                       </summary>
                       <ul
+                        style="{{ details_design }}"
                         id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}"
                         class="header__submenu list-menu motion-reduce"
                       >
                         {%- for childlink in link.links -%}
                           {%- if childlink.links != blank -%}
-                            <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                            <details style="padding: 0 10px;position: relative;" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
                               <summary
                                 id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                 class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -61,6 +65,7 @@
                                 {% render 'icon-caret' %}
                               </summary>
                               <ul
+                                style="{{ details_design }}"
                                 id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                 class="header__submenu list-menu motion-reduce"
                               >
@@ -101,6 +106,7 @@
                     <a
                       id="HeaderMenu-{{ link.handle }}"
                       href="{{ link.url }}"
+                      style="padding: 10px 3rem;"
                       class="header__menu-item list-menu__item link link--text focus-inset"
                       {% if link.current %}
                         aria-current="page"
@@ -154,7 +160,7 @@
                     <ul class="list-unstyled" role="list">
                       {% for link in block.settings.first_menu.links %}
                         {%- if link.links != blank -%}
-                          <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                          <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
                             <summary
                               style="padding-left: 0;padding-bottom: 0px;padding-top: 0px;margin-top: 20px;"
                               id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
@@ -164,12 +170,13 @@
                               {% render 'icon-caret' %}
                             </summary>
                             <ul
+                              style="{{ details_design }}"
                               id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}"
                               class="header__submenu list-menu motion-reduce"
                             >
                               {%- for childlink in link.links -%}
                                 {%- if childlink.links != blank -%}
-                                  <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                                  <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
                                     <summary
                                       id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -178,6 +185,7 @@
                                       {% render 'icon-caret' %}
                                     </summary>
                                     <ul
+                                      style="{{ details_design }}"
                                       id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__submenu list-menu motion-reduce"
                                     >
@@ -216,7 +224,7 @@
                           </details>
                         {% else %}
                           <a
-                            style="padding: 20px 0;padding-bottom: 0;"
+                            style="{{ details_single_link }}"
                             id="HeaderMenu-{{ link.handle }}"
                             href="{{ link.url }}"
                             class="header__menu-item list-menu__item link link--text focus-inset"
@@ -247,7 +255,7 @@
                     <ul class="list-unstyled" role="list">
                       {% for link in block.settings.second_menu.links %}
                         {%- if link.links != blank -%}
-                          <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
+                          <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}">
                             <summary
                               style="padding-left: 0;padding-bottom: 0px;padding-top: 0px;margin-top: 20px;"
                               id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}"
@@ -257,12 +265,13 @@
                               {% render 'icon-caret' %}
                             </summary>
                             <ul
+                              style="{{ details_design }}"
                               id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}"
                               class="header__submenu list-menu motion-reduce"
                             >
                               {%- for childlink in link.links -%}
                                 {%- if childlink.links != blank -%}
-                                  <details id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
+                                  <details style="{{ details_position }}" id="Details-HeaderSubMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}">
                                     <summary
                                       id="HeaderMenu-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__menu-item link link--text list-menu__item focus-inset caption-large"
@@ -271,6 +280,7 @@
                                       {% render 'icon-caret' %}
                                     </summary>
                                     <ul
+                                      style="{{ details_design }}"
                                       id="HeaderMenu-SubMenuList-{{ forloop.index }}-{{ link.handle }}-{{ childlink.handle }}"
                                       class="header__submenu list-menu motion-reduce"
                                     >
@@ -309,7 +319,7 @@
                           </details>
                         {% else %}
                           <a
-                            style="padding: 20px 0;padding-bottom: 0;"
+                            style="{{ details_single_link }}"
                             id="HeaderMenu-{{ link.handle }}"
                             href="{{ link.url }}"
                             class="header__menu-item list-menu__item link link--text focus-inset"
