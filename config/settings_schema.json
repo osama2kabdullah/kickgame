@@ -1391,7 +1391,30 @@
         "default": false,
         "label": "t:settings_schema.search_input.settings.predictive_search_show_price.label",
         "info": "t:settings_schema.search_input.settings.predictive_search_show_price.info"
-      }
+      },
+      {
+        "type": "product_list",
+        "id": "auto_suggest_product_list",
+        "label": "Auto Suggest Products",
+        "limit": 8
+      },
+      {
+        "type": "header",
+        "content": "Search suggestions",
+        "info": "include products and collections"
+      },
+      {
+        "type": "product_list",
+        "id": "search_suggest_product_list",
+        "label": "Search Suggest Products",
+        "limit": 4
+      },   
+      {
+        "type": "collection_list",
+        "id": "search_suggest_collection_list",
+        "label": "Search Suggest Collections",
+        "limit": 4
+      }   
     ]
   },
   {

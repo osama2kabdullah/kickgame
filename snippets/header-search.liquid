@@ -68,8 +68,7 @@
               type="reset"
               class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
               aria-label="{{ 'general.search.reset' | t }}"
-            >
-            </button>
+            ></button>
             <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
               <svg class="icon icon-search" aria-hidden="true" focusable="false">
                 <use href="#icon-search">
@@ -85,7 +84,6 @@
                 <use href="#icon-close">
               </svg>
             </button>
-            
           </div>
 
           {%- if settings.predictive_search_enabled -%}
@@ -95,8 +93,117 @@
 
             <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
           {%- endif -%}
-
         </form>
+
+        <div id="custom-static-search-suggesion" style="background: var(--gradient-background);" class="predictive-search__results-groups-wrapper">
+
+          <div class="predictive-search__result-group">
+            <h2 id="predictive-search-queries" class="predictive-search__heading text-body caption-with-letter-spacing">
+              {{- 'templates.search.suggestions' | t -}}
+            </h2>
+            <ul
+              id="predictive-search-results-queries-list"
+              class="predictive-search__results-list list-unstyled"
+              role="group"
+              aria-labelledby="predictive-search-queries"
+            >
+              {% for product in settings.search_suggest_product_list %}
+                <li
+                  id="predictive-search-option-query-{{ forloop.index }}"
+                  class="predictive-search__list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a href="{{ product.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                    <div class="predictive-search__item-content predictive-search__item-content--centered">
+                      <p
+                        class="predictive-search__item-heading predictive-search__item-query-result h5"
+                        aria-label="{{ product.title }}"
+                      >
+                        {{ product.title }}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              {% endfor %}
+              {% for collection in settings.search_suggest_collection_list %}
+                <li
+                  id="predictive-search-option-query-{{ forloop.index }}"
+                  class="predictive-search__list-item"
+                  role="option"
+                  aria-selected="false"
+                >
+                  <a href="{{ collection.url }}" class="predictive-search__item link link--text" tabindex="-1">
+                    <div class="predictive-search__item-content predictive-search__item-content--centered">
+                      <p
+                        class="predictive-search__item-heading predictive-search__item-query-result h5"
+                        aria-label="{{ collection.title }}"
+                      >
+                        {{ collection.title }}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="predictive-search__result-group">
+            <div>
+              <h2
+                id="predictive-search-products"
+                class="predictive-search__heading text-body caption-with-letter-spacing"
+              >
+                {{- 'templates.search.products' | t -}}
+              </h2>
+              <ul
+                id="predictive-search-results-products-list"
+                class="predictive-search__results-list list-unstyled"
+                role="group"
+                aria-labelledby="predictive-search-products"
+              >
+                {% for product in settings.auto_suggest_product_list %}
+                  <li
+                    id="predictive-search-option-product-{{ forloop.index }}"
+                    class="predictive-search__list-item"
+                    role="option"
+                    aria-selected="false"
+                  >
+                    <a
+                      href="{{ product.url }}"
+                      class="predictive-search__item predictive-search__item--link-with-thumbnail link link--text"
+                      tabindex="-1"
+                    >
+                      {%- if product.featured_media != blank -%}
+                        <img
+                          class="predictive-search__image"
+                          src="{{ product.featured_media | image_url: width: 150 }}"
+                          alt="{{ product.featured_media.alt }}"
+                          width="100"
+                          height="{{ 100 | divided_by: product.featured_media.preview_image.aspect_ratio }}"
+                        >
+                      {%- endif -%}
+                      <div class="predictive-search__item-content{% unless settings.predictive_search_show_vendor or settings.predictive_search_show_price %} predictive-search__item-content--centered{% endunless %}">
+                        {%- if settings.predictive_search_show_vendor -%}
+                          <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
+                          <div class="predictive-search__item-vendor caption-with-letter-spacing">
+                            {{ product.vendor }}
+                          </div>
+                        {%- endif -%}
+                        <p class="predictive-search__item-heading h5">{{ product.title | escape }}</p>
+                        {%- if settings.predictive_search_show_price -%}
+                          {% render 'price', product: product, use_variant: true, show_badges: false %}
+                        {%- endif -%}
+                      </div>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
         {%- if settings.predictive_search_enabled -%}
           </predictive-search>
         {%- else -%}

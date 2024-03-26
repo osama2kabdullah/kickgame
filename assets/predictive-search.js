@@ -40,6 +40,7 @@ class PredictiveSearch extends SearchForm {
 
     if (!this.searchTerm.length) {
       this.close(true);
+      document.querySelector("#custom-static-search-suggesion").style.display = "flex";
       return;
     }
 
@@ -226,6 +227,13 @@ class PredictiveSearch extends SearchForm {
   }
 
   renderSearchResults(resultsMarkup) {
+
+    if (resultsMarkup.includes('No results found')) {
+      //no result found
+      document.querySelector("#custom-static-search-suggesion").style.display = "flex";
+    }else {
+      document.querySelector("#custom-static-search-suggesion").style.display = "none";
+    }
     this.predictiveSearchResults.innerHTML = resultsMarkup;
     this.setAttribute('results', true);
 
