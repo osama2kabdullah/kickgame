@@ -10,9 +10,20 @@ class DetailsDisclosure extends HTMLElement {
     this.mainDetailsToggle.addEventListener('mouseleave', this.close.bind(this));
   }
 
-  open() {
-    this.mainDetailsToggle.setAttribute('open', true);
-    this.mainDetailsToggle.querySelector('summary').setAttribute('aria-expanded', true);
+  onFocusOut() {
+    setTimeout(() => {
+      if (!this.contains(document.activeElement)) this.close();
+    });
+  }
+
+  onToggle() {
+    if (!this.animations) this.animations = this.content.getAnimations();
+
+    if (this.mainDetailsToggle.hasAttribute('open')) {
+      this.animations.forEach((animation) => animation.play());
+    } else {
+      this.animations.forEach((animation) => animation.cancel());
+    }
   }
 
   open() {
@@ -34,9 +45,7 @@ class HeaderMenu extends DetailsDisclosure {
     this.header = document.querySelector('.header-wrapper');
   }
 
-  open() {
-    super.open(); // Call the parent open method to set the open attribute
-
+  onToggle() {
     if (!this.header) return;
     this.header.preventHide = this.mainDetailsToggle.open;
 
