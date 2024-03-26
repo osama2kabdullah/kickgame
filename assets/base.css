@@ -1716,6 +1716,7 @@ details[open] > .share-button__fallback {
   width: 100%;
   display: flex;
   transition: box-shadow var(--duration-short) ease;
+  background-color: var(--gradient-background);
 }
 
 .customer .field {
@@ -2082,8 +2083,8 @@ product-info .loading__spinner:not(.hidden) ~ *,
 
 .modal__content {
   position: absolute;
-  top: calc(100% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
-  /* top: 0; */
+  /* top: calc(100% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width))); */
+  top: 100%;
   left: 0;
   right: 0;
   bottom: 0;
@@ -2682,22 +2683,22 @@ details[open] .modal-overlay::after {
 .search-modal {
   opacity: 0;
   border-bottom: 1px solid;
-  min-height: calc(55% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+  /* min-height: calc(55% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width))); */
 }
 
 @media screen and (max-width: 960px) {
   .search-modal {
-    min-height: calc(71.1% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+    /* min-height: calc(71.1% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width))); */
   }
 }
 @media screen and (max-width: 749px) {
   .search-modal {
-    min-height: calc(72.7% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+    /* min-height: calc(72.7% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width))); */
   }
 }
 @media screen and (max-width: 370px) {
   .search-modal {
-    min-height: calc(62% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width)));
+    /* min-height: calc(62% + var(--inputs-margin-offset) + (1 * var(--inputs-border-width))); */
   }
 }
 

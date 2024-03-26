@@ -1,7 +1,7 @@
 .predictive-search {
   display: none;
   position: absolute;
-  top: calc(100% + 0.1rem);
+  top: unset;
   left: -0.1rem;
   border-width: var(--popup-border-width);
   border-style: solid;
