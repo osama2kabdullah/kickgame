@@ -1,0 +1,50 @@
+.scrolling-text {
+  color: var(--color-text-main);
+  border: 0;
+  width: 100%;
+  height: 6.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.element--horizontal-space--xlarge-x-2 {
+  padding: 0 30px;
+}
+.element--horizontal-space--regular-x-2 {
+  padding: 0 10px;
+}
+.element--horizontal-space--large-x-2 {
+  padding: 0 20px;
+}
+.text-size--xlarge {
+  font-size: 30px;
+}
+.text-size--large {
+  font-size: 20px;
+}
+@media screen and (max-width: 1023px) {
+  .scrolling-text {
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .scrolling-text {
+    height: 3.75rem;
+  }
+}
+.scrolling-text.text-size--large {
+  height: 3.75rem;
+}
+.scrolling-text.text-size--small {
+  height: 2.5rem;
+}
+.scrolling-text span {
+  display: inline-block;
+}
+.scrolling-text a {
+  text-decoration: underline;
+}
