@@ -28,7 +28,11 @@
       <div>
         {%- liquid
           for block in section.blocks
-            echo '<span class="element--horizontal-space--' | append: section.settings.horizontal_space | append: '">' | append: block.settings.marquee_text | append: '</span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16"> <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/> </svg>'
+            if section.settings.devide_style == 'none'
+              echo '<span class="element--horizontal-space--' | append: section.settings.horizontal_space | append: '">' | append: block.settings.marquee_text | append: '</span>'
+            else
+              echo '<span class="element--horizontal-space--' | append: section.settings.horizontal_space | append: '">' | append: block.settings.marquee_text | append: '</span> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16"> <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/> </svg>'
+            endif
           endfor
         -%}
       </div>
@@ -56,6 +60,22 @@
       ],
       "default": "ltr",
       "label": "Direction left"
+    },
+    {
+      "id": "devide_style",
+      "type": "select",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "dot",
+          "label": "Dot"
+        }
+      ],
+      "default": "dot",
+      "label": "Devide style"
     },
     {
       "type": "range",
