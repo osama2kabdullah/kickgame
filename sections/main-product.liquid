@@ -545,23 +545,33 @@
                   {%- endif -%}
                 </div>
               {%- when 'popup' -%}
-                <modal-opener
-                  class="product-popup-modal__opener no-js-hidden quick-add-hidden"
-                  data-modal="#PopupModal-{{ block.id }}"
-                  {{ block.shopify_attributes }}
-                >
-                  <button
-                    id="ProductPopup-{{ block.id }}"
-                    class="product-popup-modal__button link"
-                    type="button"
-                    aria-haspopup="dialog"
+                {% unless block.settings.id != blank %}
+                  <modal-opener
+                    class="product-popup-modal__opener no-js-hidden quick-add-hidden"
+                    {% if block.settings.id != blank %}
+                      data-modal="#PopupModal-{{ block.settings.id }}"
+                      {% else %}
+                      data-modal="#PopupModal-{{ block.id }}"
+                    {% endif %}
+                    {{ block.shopify_attributes }}
                   >
-                    {{ block.settings.text | default: block.settings.page.title | escape }}
-                  </button>
-                </modal-opener>
-                <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
-                  {{- block.settings.text -}}
-                </a>
+                    <button
+                      {% if block.settings.id != blank %}
+                        id="ProductPopup-{{ block.settings.id }}"
+                        {% else %}
+                        id="ProductPopup-{{ block.id }}"
+                      {% endif %}
+                      class="product-popup-modal__button link"
+                      type="button"
+                      aria-haspopup="dialog"
+                    >
+                      {{ block.settings.text | default: block.settings.page.title | escape }}
+                    </button>
+                  </modal-opener>
+                  <a href="{{ block.settings.page.url }}" class="product-popup-modal__button link no-js">
+                    {{- block.settings.text -}}
+                  </a>
+                {% endunless %}
               {%- when 'share' -%}
                 {% assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin %}
                 {% render 'share-button', block: block, share_link: share_url %}
@@ -771,7 +781,29 @@
 
     {% assign popups = section.blocks | where: 'type', 'popup' %}
     {%- for block in popups -%}
-      <modal-dialog id="PopupModal-{{ block.id }}" class="product-popup-modal" {{ block.shopify_attributes }}>
+
+      {% style %}
+        {% if block.settings.id == "size" %}
+          table.ks-table {
+              border-collapse: collapse;
+              width: 100%;
+              border: 1px solid black;
+          }
+  
+          table.ks-table td, table.ks-table th {
+              border: 1px solid black; /* You can adjust the border properties as needed */
+              padding: 8px;
+          }
+        {% endif %}
+      {% endstyle %}
+
+      <modal-dialog 
+        {% if block.settings.id != blank %}
+          id="PopupModal-{{ block.settings.id }}"
+          {% else %}
+          id="PopupModal-{{ block.id }}"
+        {% endif %}
+        class="product-popup-modal" {{ block.shopify_attributes }}>
         <div
           role="dialog"
           aria-label="{{ block.settings.text }}"
@@ -1385,6 +1417,12 @@
           "id": "page",
           "type": "page",
           "label": "t:sections.main-product.blocks.popup.settings.page.label"
+        },
+        {
+          "type": "text",
+          "id": "id",
+          "label": "block id",
+          "info": "Note: this field for open pop up only for size chart. fill the field with text = \"size\". if this pop up for normal. make it empty."
         }
       ]
     },
