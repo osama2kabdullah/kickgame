@@ -57,11 +57,12 @@
   {% if section.settings.enable_sticky_info %}
     class="product__column-sticky"
   {% endif %}
+  style="display: flex;"
   aria-label="{{ 'products.product.media.gallery_viewer' | t }}"
   data-desktop-layout="{{ section.settings.gallery_layout }}"
 >
   <div id="GalleryStatus-{{ section.id }}" class="visually-hidden" role="status"></div>
-  <slider-component id="GalleryViewer-{{ section.id }}{{ id_append }}" class="slider-mobile-gutter">
+  <slider-component style="width: 100%;" id="GalleryViewer-{{ section.id }}{{ id_append }}" class="slider-mobile-gutter">
     {%- unless is_duplicate -%}
       <a class="skip-to-content-link button visually-hidden quick-add-hidden" href="#ProductInfo-{{ section.id }}">
         {{ 'accessibility.skip_to_product_info' | t }}
@@ -176,10 +177,11 @@
     or section.settings.mobile_thumbnails == 'show'
   -%}
     <slider-component
+      style="flex-direction: column;width: 15%;"
       id="GalleryThumbnails-{{ section.id }}{{ id_append }}"
       class="thumbnail-slider slider-mobile-gutter quick-add-hidden{% unless section.settings.gallery_layout contains 'thumbnail' %} medium-hide large-up-hide{% endunless %}{% if section.settings.mobile_thumbnails != 'show' %} small-hide{% endif %}{% if media_count <= 3 %} thumbnail-slider--no-slide{% endif %}"
     >
-      <button
+      {% comment %} <button
         type="button"
         class="slider-button slider-button--prev{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
         name="previous"
@@ -188,8 +190,9 @@
         data-step="3"
       >
         {% render 'icon-caret' %}
-      </button>
+      </button> {% endcomment %}
       <ul
+        style="flex-direction: column; width: 100%;"
         id="Slider-Thumbnails-{{ section.id }}{{ id_append }}"
         class="thumbnail-list list-unstyled slider slider--mobile{% if section.settings.gallery_layout == 'thumbnail_slider' %} slider--tablet-up{% endif %}"
       >
@@ -258,6 +261,7 @@
               assign media_index = media_index | plus: 1
             -%}
             <li
+              style="width: 100%;"
               id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }}"
               class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"
               data-target="{{ section.id }}-{{ media.id }}"
@@ -303,7 +307,7 @@
           {%- endunless -%}
         {%- endfor -%}
       </ul>
-      <button
+      {% comment %} <button
         type="button"
         class="slider-button slider-button--next{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
         name="next"
@@ -312,7 +316,7 @@
         data-step="3"
       >
         {% render 'icon-caret' %}
-      </button>
+      </button> {% endcomment %}
     </slider-component>
   {%- endif -%}
 </media-gallery>
