@@ -7,6 +7,23 @@
     animation: greendot 2s linear infinite;
     transform: scale(1);
   }
+  .product-details_bullet {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+  }
+  .product-details_bullet > div > h4 {
+    font-weight: bold !important;
+    display: flex;
+    align-items: end;
+    gap: 10px;
+    margin-bottom: 0 !important;
+  }
+  .product-details_bullet > div {
+    background: #f4f4f4;
+    padding: 0 15px;
+    border-radius: 10px;
+  }
   @keyframes greendot {
     0% {
       transform: scale(0.95);
@@ -202,10 +219,80 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
+                <p
+                  class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.inventory_management != 'shopify' %} visibility-hidden{% endif %}"
+                  {{ block.shopify_attributes }}
+                  id="Inventory-{{ section.id }}"
+                  role="status"
+                >
+                  {%- if product.selected_or_first_available_variant.inventory_management == 'shopify' -%}
+                    {%- if product.selected_or_first_available_variant.inventory_quantity > 0 -%}
+                      {%- if product.selected_or_first_available_variant.inventory_quantity
+                          <= block.settings.inventory_threshold
+                      -%}
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
+                        </svg>
+                        {%- if block.settings.show_inventory_quantity -%}
+                          {{-
+                            'products.product.inventory_low_stock_show_count'
+                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                          -}}
+                        {%- else -%}
+                          {{- 'products.product.inventory_low_stock' | t -}}
+                        {%- endif -%}
+                      {%- else -%}
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="#d39897"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="#d39897" stroke-width="1" fill="#ad3232"/>
+                        </svg>
+                        {%- if block.settings.show_inventory_quantity -%}
+                          {{-
+                            'products.product.inventory_in_stock_show_count'
+                            | t: quantity: product.selected_or_first_available_variant.inventory_quantity
+                          -}}
+                        {%- else -%}
+                          {{- 'products.product.inventory_in_stock' | t -}}
+                        {%- endif -%}
+                      {%- endif -%}
+                    {%- else -%}
+                      {%- if product.selected_or_first_available_variant.inventory_policy == 'continue' -%}
+                        <span class="green-dot"></span>
+                        {{- 'products.product.inventory_out_of_stock_continue_selling' | t -}}
+                      {%- else -%}
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                        </svg>
+                        {{- 'products.product.inventory_out_of_stock' | t -}}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endif -%}
+                </p>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                     {{ product.description }}
+                  </div>
+                {%- endif -%}
+              {%- when 'details_bullet' -%}
+                {%- if product.description != blank -%}
+                  <div class="product-details_bullet" {{ block.shopify_attributes }}>
+                    <div>
+                      <h4>
+                        {{ block.settings.icon_1 }}
+                        {{ block.settings.title_1 }}
+                      </h4>
+                      <div>{{ block.settings.description_1 }}</div>
+                    </div>
+                    <div>
+                      <h4>
+                        {{ block.settings.icon_2 }}
+                        {{ block.settings.title_2 }}
+                      </h4>
+                      <div>{{ block.settings.description_2 }}</div>
+                    </div>
                   </div>
                 {%- endif -%}
               {%- when 'sku' -%}
@@ -230,7 +317,16 @@
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>
-                      {% render 'icon-caret' %}
+                      <svg style="
+                        background: #e8e8e8;
+                        height: 18px;
+                        width: 18px;
+                        border-radius: 22px;
+                        padding: 4px;
+                        top: 13px;
+                    " aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
                     </summary>
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
@@ -799,6 +895,54 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "details_bullet",
+      "name": "Details bullet",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Block 1"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_1",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Title",
+          "default": "Text block"
+        },
+        {
+          "type": "richtext",
+          "id": "description_1",
+          "default": "<p>Text Description</p>",
+          "label": "Description"
+        },
+        {
+          "type": "header",
+          "content": "Block 2"
+        },
+        {
+          "type": "textarea",
+          "id": "icon_2",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Title",
+          "default": "Text block"
+        },
+        {
+          "type": "richtext",
+          "id": "description_2",
+          "default": "<p>Text Description</p>",
+          "label": "Description"
+        }
+      ]
     },
     {
       "type": "text",
