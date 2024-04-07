@@ -43,6 +43,14 @@
   endif
 -%}
 
+{% if product.compare_at_price > product.price %}
+  {% capture discount_percentage %}
+      {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%
+  {% endcapture %}
+  {% else %}
+  {% assign discount_percentage = "none" %}
+{% endif %}
+
 <media-gallery
   id="MediaGallery-{{ section.id }}{{ id_append }}"
   role="region"
@@ -81,6 +89,7 @@
             loop: section.settings.enable_video_looping,
             modal_id: section.id,
             xr_button: true,
+            badge: discount_percentage,
             media_width: media_width,
             media_fit: section.settings.media_fit,
             constrain_to_viewport: section.settings.constrain_to_viewport,
@@ -112,6 +121,7 @@
               modal_id: section.id,
               xr_button: true,
               media_width: media_width,
+              badge: discount_percentage,
               media_fit: section.settings.media_fit,
               constrain_to_viewport: section.settings.constrain_to_viewport,
               lazy_load: lazy_load

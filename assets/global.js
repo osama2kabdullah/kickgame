@@ -1146,8 +1146,10 @@ class VariantSelects extends HTMLElement {
         if (volumeNote) volumeNote.classList.remove('hidden');
         if (volumePricingDestination) volumePricingDestination.classList.remove('hidden');
         if (qtyRules) qtyRules.classList.remove('hidden');
-
+        const btnPrice = html.querySelector(".price-item.price-item--regular");
+        const destinationBtnPrice = document.querySelector(".add-to-cart-btn-price");
         if (source && destination) destination.innerHTML = source.innerHTML;
+        if (btnPrice && destinationBtnPrice) destinationBtnPrice.innerHTML = btnPrice.innerHTML;
         if (inventorySource && inventoryDestination) inventoryDestination.innerHTML = inventorySource.innerHTML;
         if (skuSource && skuDestination) {
           skuDestination.innerHTML = skuSource.innerHTML;

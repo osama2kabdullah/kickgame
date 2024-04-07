@@ -27,9 +27,9 @@
   assign money_price_min = price_min | money
   assign money_price_max = price_max | money
   if settings.currency_code_enabled
-    assign money_price = price | money_with_currency
-    assign money_price_min = price_min | money_with_currency
-    assign money_price_max = price_max | money_with_currency
+    assign money_price = price | money
+    assign money_price_min = price_min | money
+    assign money_price_max = price_max | money
   endif
 
   if target == product and product.price_varies
@@ -64,7 +64,7 @@
             <span>
               <s class="price-item price-item--regular variant-item__old-price">
                 {% if settings.currency_code_enabled %}
-                  {{ compare_at_price | money_with_currency }}
+                  {{ compare_at_price | money }}
                 {% else %}
                   {{ compare_at_price | money }}
                 {% endif %}
@@ -89,7 +89,7 @@
         <span>
           <s class="price-item price-item--regular">
             {% if settings.currency_code_enabled %}
-              {{ compare_at_price | money_with_currency }}
+              {{ compare_at_price | money }}
             {% else %}
               {{ compare_at_price | money }}
             {% endif %}
@@ -97,7 +97,11 @@
         </span>
       {%- endunless -%}
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <span class="price-item price-item--sale price-item--last">
+      <span style="
+        color: #f87c56;
+        font-weight: bold;
+        font-size: larger;
+    " class="price-item price-item--sale price-item--last">
         {{ money_price }}
       </span>
     </div>
@@ -117,8 +121,19 @@
     </small>
   </div>
   {%- if show_badges -%}
-    <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
-      {{ 'products.product.on_sale' | t }}
+    <span style="
+      background: #1bae4b;
+      font-weight: bold;
+      color: white;
+      font-size: larger;
+      padding-bottom: 4px;
+      padding-top: 7px;
+  " class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+      {% comment %} {{ 'products.product.on_sale' | t }} {% endcomment %}
+      {% if product.compare_at_price > product.price %}
+        {% assign remain = product.compare_at_price | minus: product.price %}
+        {{ remain | money | prepend: "Save " }}
+      {% endif %}
     </span>
 
     <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">

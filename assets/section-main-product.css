@@ -1196,8 +1196,8 @@ a.product__text {
 
 .product__inventory {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 1.5rem;
 }
 
 .product--no-media .product__inventory {
@@ -1228,6 +1228,14 @@ a.product__text {
 
 .icon-with-text--vertical {
   --icon-size: calc(var(--font-heading-scale) * 2rem);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media only screen and (max-width: 600px){
+  .icon-with-text--vertical {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .icon-with-text .icon {

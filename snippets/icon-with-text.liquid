@@ -14,6 +14,13 @@
   assign heading_1_empty = false
   assign heading_2_empty = false
   assign heading_3_empty = false
+  assign heading_4_empty = false
+  assign heading_5_empty = false
+  assign heading_6_empty = false
+  assign heading_7_empty = false
+  assign heading_8_empty = false
+  assign heading_9_empty = false
+  assign heading_10_empty = false
   assign text_only_all_items = true
 
   if block.settings.heading_1 == empty
@@ -28,11 +35,53 @@
     assign heading_3_empty = true
   endif
 
+  if block.settings.heading_4 == empty
+    assign heading_4_empty = true
+  endif
+
+  if block.settings.heading_5 == empty
+    assign heading_5_empty = true
+  endif
+
+  if block.settings.heading_6 == empty
+    assign heading_6_empty = true
+  endif
+
+  if block.settings.heading_7 == empty
+    assign heading_7_empty = true
+  endif
+
+  if block.settings.heading_8 == empty
+    assign heading_8_empty = true
+  endif
+
+  if block.settings.heading_9 == empty
+    assign heading_9_empty = true
+  endif
+
+  if block.settings.heading_10 == empty
+    assign heading_10_empty = true
+  endif
+
   if heading_1_empty == false and block.settings.icon_1 != 'none' or block.settings.image_1 != null
     assign text_only_all_items = false
   elsif heading_2_empty == false and block.settings.icon_2 != 'none' or block.settings.image_2 != null
     assign text_only_all_items = false
   elsif heading_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
+    assign text_only_all_items = false
+  elsif heading_4_empty == false and block.settings.icon_4 != 'none' or block.settings.image_4 != null
+    assign text_only_all_items = false
+  elsif heading_5_empty == false and block.settings.icon_5 != 'none' or block.settings.image_5 != null
+    assign text_only_all_items = false
+  elsif heading_6_empty == false and block.settings.icon_6 != 'none' or block.settings.image_6 != null
+    assign text_only_all_items = false
+  elsif heading_7_empty == false and block.settings.icon_7 != 'none' or block.settings.image_7 != null
+    assign text_only_all_items = false
+  elsif heading_8_empty == false and block.settings.icon_8 != 'none' or block.settings.image_8 != null
+    assign text_only_all_items = false
+  elsif heading_9_empty == false and block.settings.icon_9 != 'none' or block.settings.image_9 != null
+    assign text_only_all_items = false
+  elsif heading_10_empty == false and block.settings.icon_10 != 'none' or block.settings.image_10 != null
     assign text_only_all_items = false
   endif
 -%}
@@ -106,4 +155,165 @@
       </span>
     </li>
   {%- endunless -%}
+  
+  {%- unless heading_4_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_4 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_4 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_4 | image_url }}"
+          {% if block.settings.image_4.alt != blank %}
+            alt="{{ block.settings.image_4.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_4 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_5_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_5 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_5 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_5 | image_url }}"
+          {% if block.settings.image_5.alt != blank %}
+            alt="{{ block.settings.image_5.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_5 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_6_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_6 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_6 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_6 | image_url }}"
+          {% if block.settings.image_6.alt != blank %}
+            alt="{{ block.settings.image_6.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_6 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_7_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_7 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_7 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_7 | image_url }}"
+          {% if block.settings.image_7.alt != blank %}
+            alt="{{ block.settings.image_7.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_7 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_8_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_8 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_8 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_8 | image_url }}"
+          {% if block.settings.image_8.alt != blank %}
+            alt="{{ block.settings.image_8.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_8 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_9_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_9 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_9 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_9 | image_url }}"
+          {% if block.settings.image_9.alt != blank %}
+            alt="{{ block.settings.image_9.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_9 -}}
+      </span>
+    </li>
+  {%- endunless -%}
+  
+  {%- unless heading_10_empty -%}
+    <li class="icon-with-text__item">
+      {%- if block.settings.image_10 == null -%}
+        {% render 'icon-accordion', icon: block.settings.icon_10 -%}
+      {%- else -%}
+        <img
+          src="{{ block.settings.image_10 | image_url }}"
+          {% if block.settings.image_10.alt != blank %}
+            alt="{{ block.settings.image_10.alt | escape }}"
+          {% else %}
+            role="presentation"
+          {% endif %}
+          height="auto"
+          width="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+      <span class="h4 inline-richtext">
+        {{- block.settings.heading_10 -}}
+      </span>
+    </li>
+  {%- endunless -%}  
 </ul>
