@@ -1011,13 +1011,21 @@ a.product__text {
   }
 }
 
-@media screen and (min-width: 900px) {
+/* Styles for Mobile */
+@media screen and (max-width: 899px) {
   .product--small .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
     width: calc(25% - 0.8rem);
   }
 
   .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
     width: calc(20% - 0.8rem);
+  }
+}
+
+/* Styles for Desktop */
+@media screen and (max-width: 899px) {
+  .product--small .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
+    width: 100%;
   }
 }
 

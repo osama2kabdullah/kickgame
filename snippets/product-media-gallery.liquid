@@ -43,6 +43,30 @@
   endif
 -%}
 
+{% style %}
+@media only screen and (min-width: 600px) {
+  media-gallery {
+    display: flex !important;
+  }
+  slider-component {
+    flex-direction: column !important;
+    width: 15% !important;
+  }
+  #Slider-Thumbnails-{{ section.id }}{{ id_append }} {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  media-gallery .slider-button {
+    display: none !important;
+  }
+  #GalleryViewer-{{ section.id }}{{ id_append }} {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 599px) {
+}
+{% endstyle %}
+
 {% if product.compare_at_price > product.price %}
   {% capture discount_percentage %}
       {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}%
@@ -261,6 +285,18 @@
               endcapture
               assign media_index = media_index | plus: 1
             -%}
+            {% style %}
+              @media only screen and (min-width: 600px){
+                #Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }} {
+                  width: 100% !important;
+                }
+              }
+              @media only screen and (max-width: 599px) {
+                #Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }} {
+                  width: calc(20% - 0.8rem) !important;
+                }
+              }
+            {% endstyle %}
             <li
                 {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and product.selected_or_first_available_variant.featured_image.alt != blank %}
             style="display:none;"  
