@@ -76,6 +76,7 @@
               >
                 {%- if block.settings.heading != blank -%}
                   <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -185,6 +186,7 @@
                           </li>
                         {%- endfor -%}
                       </ul>
+                      
                     {%- endif -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
@@ -208,7 +210,21 @@
                         </div>
                       {%- endif -%}
                       {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
+                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2><div class="mbl" style=" gap: 10px;
+    position: absolute;
+    right: 25px;
+    align-items: baseline;
+    margin-top: -6px;">
+                      <div style="display: flex;align-items: center;gap: 5px;justify-content: center;">
+                        <img alt="TrustScore 5 out of 5" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" style="width: 100px; object-fit: contain;">
+                        <span style="color: gray;">4.8</span>
+                      </div>
+                      <img src="https://cdn.shopify.com/s/files/1/0273/7287/9946/files/Trustpilot_White.png" style="width: 100px; object-fit: contain;">
+                       <h2 style="position: absolute;
+    top: -15px;
+    right: -14px;
+    letter-spacing: 0px !important;">Trustpilot</h2>
+                    </div>
                       {%- endif -%}
                       {%- if settings.brand_description != blank -%}
                         <div class="rte">{{ settings.brand_description }}</div>
@@ -216,6 +232,37 @@
                       {%- if block.settings.show_social and has_social_icons -%}
                         {%- render 'social-icons', class: 'footer__list-social' -%}
                       {%- endif -%}
+                      <style>
+                        .mbl{
+                          display:none;
+                        }
+                      @media only screen and (max-width:700px){
+                        h2.footer-block__heading.rte {
+    float: inline-start;
+}
+                        .dsk{
+                          display:none !important;
+                        }
+                        .mbl{
+                          display: flex !important;
+                        }
+                      }
+                      </style>
+                     <div class="dsk" style="    display: flex;
+    gap: 10px;
+    position: relative;
+    margin-top: 25px;
+    margin-left: -3px;">
+                      <div style="display: flex;align-items: center;gap: 5px;justify-content: center;">
+                        <img alt="TrustScore 5 out of 5" src="https://cdn.trustpilot.net/brand-assets/4.1.0/stars/stars-5.svg" style="width: 100px; object-fit: contain;">
+                        <span style="color: gray;">4.8</span>
+                      </div>
+                      <img src="https://cdn.shopify.com/s/files/1/0273/7287/9946/files/Trustpilot_White.png" style="width: 100px; object-fit: contain;">
+                       <h2 style="    position: absolute;
+    top: -19px;
+    right: -4px;
+    letter-spacing: 0px !important;">Trustpilot</h2>
+                    </div>
                     </div>
                   {%- when 'image' -%}
                     <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">

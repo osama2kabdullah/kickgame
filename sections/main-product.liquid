@@ -145,6 +145,16 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
+        <div class="hty">
+          <div class="tolp">
+            <h3>Excellent</h3>
+            <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/stars-5-1.svg?v=1711654510" loading="lazy" width="2500" height="469" alt="stars-5-1__PID:61cad12b-028e-44a6-a6cf-1761628f5dc5" data-pf-type="Image3" class="sc-eLwHnm kKIkeB pf-17_ pf-image-1">
+          </div>
+          <div class="btrm">
+            <h3 data-pf-type="Heading2" class="sc-h3">Valutazione 4.8 / 5 basata su&nbsp;<u> 298.512 recensioni&nbsp;</u>&nbsp;SU</h3>
+          <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_563-removebg-preview_120x.png?v=1711574112" srcset="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_563-removebg-preview.png?v=1711574112 1536w" width="186" height="58" sizes="(min-width: 1536px) 1536px, (min-width: 1024px) 1280px, (min-width: 640px) 768px, calc(100vw/3)" loading="lazy" alt="Screenshot_563-removebg-preview.png__PID:5fa7b233-c418-413b-b0b9-fac04fea6609" data-pf-type="Image3" class="sc-eLwHnm kKIkeB pf-22_ pf-image-1">
+          </div>
+        </div>
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
@@ -176,6 +186,10 @@
                     </h2>
                   </a>
                 </div>
+              <div class="tth">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/stars-5-1.svg?v=1711654510" loading="lazy" width="2500" height="469" alt="stars-5-1__PID:61cad12b-028e-44a6-a6cf-1761628f5dc5" data-pf-type="Image3" class="sc-eLwHnm kKIkeB pf-17_ pf-image-1">
+             <p class="sc-fWCJzd hMtPyx pf-34_ pf-text-1" data-pf-type="Paragraph3">(298,512)</p>
+              </div>
               {%- when 'price' -%}
                 <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                   {%- render 'price',
@@ -274,6 +288,51 @@
                     {{ block.settings.description_2 }}
                   </div>
                 </div>
+              <style>
+  .kuo img {
+    max-width: 200px;
+    min-width: 200px;
+    object-fit: contain;
+        max-height: 149px;
+}
+.mblr{
+  display:none;
+}
+.kuo {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+      margin-top: -43px;
+}
+
+.brnds-inner {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.brnds-inner h3 {
+    margin-top: 43px;
+    margin-bottom: 18px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.ara-brands {
+    background: aliceblue;
+    margin-bottom: 25px;
+}
+</style>
+<div class="ara-brands mblr">
+  <div class="brnds-inner">
+    <h3>VISTO SU</h3>
+    <div class="kuo">
+      <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/65de5f112dbd7f7bdfc2faf7_forbes.svg?v=1711660028">
+      <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/download__5_-removebg-preview_150x.png?v=1711796870">
+      <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/965px-La_Repubblica_Logo_svg_180x.png?v=1711660363">
+      <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Il_Sole_24_Ore_svg_6946f27e-6712-4054-af7c-bf7c2e740b94_180x.png?v=1711660401">
+    </div>
+  </div>
+</div>
               {%- when 'details_bullet' -%}
                 {%- if product.description != blank -%}
                   <div class="product-details_bullet" {{ block.shopify_attributes }}>

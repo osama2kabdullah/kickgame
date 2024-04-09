@@ -18,6 +18,40 @@
           "type": "price",
           "settings": {}
         },
+        "icon_with_text_jmBCjR": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "heart",
+            "heading_1": "Offerta Limitata: Fino a Esaurimento Scorte!",
+            "icon_2": "return",
+            "heading_2": "Esperienza di lusso ai tuoi piedi",
+            "icon_3": "truck",
+            "heading_3": "Pagamento alla consegna",
+            "icon_4": "truck",
+            "heading_4": "45 Giorni di Garanzia con Rimborso completo",
+            "icon_5": "truck",
+            "heading_5": "Consegna Express Rapida 24 ore a casa tua",
+            "icon_6": "truck",
+            "heading_6": "Resi Facili e Gratuiti : Soddisfazione Assicurata",
+            "icon_7": "truck",
+            "heading_7": "Oltre 3 Milioni di clienti felici",
+            "icon_8": "none",
+            "heading_8": "",
+            "icon_9": "none",
+            "heading_9": "",
+            "icon_10": "none",
+            "heading_10": ""
+          }
+        },
+        "popup_NNReij": {
+          "type": "popup",
+          "settings": {
+            "text": "Size Finder",
+            "page": "size-chart",
+            "id": "size"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -29,52 +63,135 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "stock_message_WXcydH": {
+          "type": "stock_message",
+          "settings": {
+            "stock_message": "Stock message"
+          }
+        },
+        "inventory_ycW8zK": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 0,
+            "show_inventory_quantity": true
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "details_badge_f7yXNN": {
+          "type": "details_badge",
+          "settings": {
+            "description_1": "<p><strong> 3 Million  <\/strong>Customers<\/p>",
+            "description_2": "<p> <strong>30-Day<\/strong> Free Returns<\/p>"
           }
         },
         "description": {
           "type": "description",
           "settings": {}
         },
-        "share": {
-          "type": "share",
+        "collapsible_tab_6LDT7j": {
+          "type": "collapsible_tab",
           "settings": {
-            "share_label": "Share"
+            "heading": "Materiali di Lusso:",
+            "icon": "none",
+            "content": "<p>- Esperienza senza paragoni con materiali pregiati<\/p><p>- Vestibilità impeccabile per un comfort straordinario e una sensazione di lusso ineguagliabile.<\/p><p>- Prestigiosa Morbidezza<\/p><p>  Realizzate con materiali di altissima qualità per una sensazione di morbidezza e comfort eccezionale.<\/p><p>- Traspiranti e Asciutte<\/p><p>  Mantieni i piedi freschi e asciutti grazie alla traspirabilità e alla rapida asciugatura dei materiali.<\/p><p>- Protezione Anti-Macchia<\/p><p>  Resistono alle macchie e ai liquidi, garantendo che le tue scarpe rimangano sempre splendide.<\/p><p>- Freschezza Duratura<\/p><p>Neutralizza i batteri responsabili degli odori, assicurando che le tue scarpe rimangano fresche per lungo tempo.<\/p>",
+            "page": ""
           }
+        },
+        "collapsible_tab_7ykJQY": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SPEDIZIONE EXPRESS GRATUITA:",
+            "icon": "none",
+            "content": "<p>ITALIA:<\/p><p>Consegna il giorno successivo - Ordina entro le 23:59 (gratuita solo per oggi)<\/p><p>Gli ordini express di Kick Game vengono spediti con corrieri FedEx o DHL. Viene fornito un numero di tracciamento via email dopo che l'ordine è stato elaborato.<\/p><p>Offriamo una politica di resi o scambi entro 30 giorni se non sei soddisfatto del tuo ordine per qualsiasi motivo. <\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_qVyx9H": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "CAMBI E RESI FACILITY:",
+            "icon": "none",
+            "content": "<p>Se il tuo acquisto non soddisfa le tue aspettative, hai a disposizione 30 giorni per effettuare il reso. Contattaci via email all'indirizzo Rimborsi@Kickgame-italia.com  per ricevere istruzioni dettagliate.<\/p><p>Offriamo un servizio di ritiro gratuito a domicilio, gestito da uno dei nostri corrieri. Assicurati semplicemente che l'articolo sia nella sua condizione originale, con imballaggio e etichette intatte.<\/p>",
+            "page": ""
+          }
+        },
+        "details_bullet_Dbd3jw": {
+          "type": "details_bullet",
+          "settings": {
+            "icon_1": "<svg role=\"presentation\" fill=\"none\" focusable=\"false\" stroke-width=\"1\" width=\"24\" height=\"24\" class=\"icon icon-picto-truck\" viewbox=\"0 0 24 24\">\n        <path d=\"M19 17.798h1.868a1.714 1.714 0 0 0 1.715-1.715V11.25a3.274 3.274 0 0 0-3.275-3.274H14.395l-.097 7.869\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n        <path d=\"M8.71 18.175c1.565 0 3.094-.16 4.572-.321m-9.94-.087a1.78 1.78 0 0 1-1.576-1.56c-.189-1.594-.407-3.256-.407-4.96 0-1.705.216-3.366.405-4.96a1.783 1.783 0 0 1 1.577-1.56c1.725-.186 3.523-.409 5.37-.409s3.644.223 5.368.408a1.783 1.783 0 0 1 1.578 1.56c.066.564.136 1.135.199 1.714\" stroke=\"currentColor\"><\/path>\n        <path d=\"M16.061 21.069a2.894 2.894 0 1 1 0-5.793 2.894 2.894 0 0 1 0 5.794v-.001ZM5.832 21.069a2.894 2.894 0 1 1 0-5.792 2.894 2.894 0 0 1 0 5.793v-.001Z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n      <\/svg>",
+            "title_1": "Free Shipping",
+            "description_1": "<p>1-3 days UK shipping. 4-7 days for the rest of the world.<\/p>",
+            "icon_2": "<svg role=\"presentation\" fill=\"none\" focusable=\"false\" stroke-width=\"1\" width=\"24\" height=\"24\" class=\"icon icon-picto-happy\" viewbox=\"0 0 24 24\">\n        <path d=\"M12 22.714a10.714 10.714 0 1 0 0-21.429 10.714 10.714 0 0 0 0 21.43v0Z\" fill=\"currentColor\" fill-opacity=\"0\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n        <path d=\"M6.56 13.647c.823 2.968 4.122 4.782 7.09 3.957 1.811-.66 3.296-2.143 3.79-3.957M16.368 9.528a.412.412 0 1 1 0-.825M16.368 9.528a.412.412 0 0 0 0-.825M7.632 9.528a.412.412 0 1 1 0-.825M7.632 9.528a.412.412 0 1 0 0-.825\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n      <\/svg>",
+            "title_2": "30-Day Returns",
+            "description_2": "<p>Love the way you look & feel, or send it back.<\/p>"
+          }
+        },
+        "judge_me_reviews_preview_badge_QJznFG": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
         }
       },
       "block_order": [
         "vendor",
         "title",
         "price",
+        "icon_with_text_jmBCjR",
+        "popup_NNReij",
         "variant_picker",
         "quantity_selector",
+        "stock_message_WXcydH",
+        "inventory_ycW8zK",
         "buy_buttons",
+        "details_badge_f7yXNN",
         "description",
-        "share"
+        "collapsible_tab_6LDT7j",
+        "collapsible_tab_7ykJQY",
+        "collapsible_tab_qVyx9H",
+        "details_bullet_Dbd3jw",
+        "judge_me_reviews_preview_badge_QJznFG"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-1",
-        "media_size": "large",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
       }
     },
+    "ara_video_GaEzUN": {
+      "type": "ara-video",
+      "settings": {}
+    },
+    "ara_brands_nFpRqK": {
+      "type": "ara-brands",
+      "settings": {}
+    },
+    "ara_insta_t4b44U": {
+      "type": "ara-insta",
+      "settings": {}
+    },
+    "ara_icons_grid_Btq8cn": {
+      "type": "ara-icons-grid",
+      "settings": {}
+    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
@@ -90,10 +207,226 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "custom_marquee_7kgAzj": {
+      "type": "custom-marquee",
+      "blocks": {
+        "text_djYRmj": {
+          "type": "text",
+          "settings": {
+            "marquee_text": "<strong>LIMITED STOCK AVAILABLE<\/strong>"
+          }
+        }
+      },
+      "block_order": [
+        "text_djYRmj"
+      ],
+      "settings": {
+        "scroll_direction": "ltr",
+        "devide_style": "none",
+        "speed": 100,
+        "pause_on_hover": false,
+        "horizontal_space": "xlarge-x-2",
+        "text_size": "text-size--xlarge",
+        "color_background_main": "#000000",
+        "color_text_main": "#ffffff",
+        "remove_top_margin": true,
+        "remove_bottom_margin": true
+      }
+    },
+    "collapsible_content_UC4Qay": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_adMXL3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How does it fit?",
+            "icon": "none",
+            "row_content": "<p>We believe we've perfected the boxy, oversized fit. Use our AI size calculator to find your best size.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_CLVW9y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What if it doesn't fit?",
+            "icon": "none",
+            "row_content": "<p>We believe we've perfected the boxy, oversized fit. Use our AI size calculator to find your best size.<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_eJVM77": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What materials do you use?",
+            "icon": "none",
+            "row_content": "<p>We believe we've perfected the boxy, oversized fit. Use our AI size calculator to find your best size.<\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_adMXL3",
+        "collapsible_row_CLVW9y",
+        "collapsible_row_eJVM77"
+      ],
+      "settings": {
+        "caption": "Seeking Answers?",
+        "heading": "<strong>FAQ's<\/strong>",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_HKCYaN": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QcgxgX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Forbes.jpg",
+            "title": "\"We’re delightfully surprised that this kit of four essential products is so cost effective.\"",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_DaxUET": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GQ_e641b97d-722a-4c2a-b6a0-e40d333eec74.jpg",
+            "title": "\"We’re delightfully surprised that this kit of four essential products is so cost effective.\"",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_pNbKKY": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Forbes.jpg",
+            "title": "\"We’re delightfully surprised that this kit of four essential products is so cost effective.\"",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_XDjLLq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/GQ_e641b97d-722a-4c2a-b6a0-e40d333eec74.jpg",
+            "title": "\"We’re delightfully surprised that this kit of four essential products is so cost effective.\"",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_BHDXfk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Forbes.jpg",
+            "title": "\"We’re delightfully surprised that this kit of four essential products is so cost effective.\"",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QcgxgX",
+        "column_DaxUET",
+        "column_pNbKKY",
+        "column_XDjLLq",
+        "column_BHDXfk"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "columns_desktop": 5,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "ara_table_Tj7r9R": {
+      "type": "ara-table",
+      "settings": {}
+    },
+    "ara_marque_btm_ffn39m": {
+      "type": "ara-marque-btm",
+      "settings": {}
+    },
+    "custom_grid_section_VAiAyN": {
+      "type": "custom-grid-section",
+      "blocks": {
+        "card_DQDH4w": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify:\/\/shop_images\/scarpa-da-running-su-strada-pegasus-40-1TmxR4_6d3d8e1a-00d2-4f50-bea1-f148f8e3b89e.jpg",
+            "paragraph": "<h1>Authenticity<\/h1><p>Our business is built on trust, and every item we sell is guaranteed authentic.<\/p><p><span style=\"text-decoration:underline\">Learn more<\/span><\/p>"
+          }
+        },
+        "card_9ihqBF": {
+          "type": "card",
+          "settings": {
+            "bg_image": "shopify:\/\/shop_images\/scarpa-da-running-su-strada-pegasus-40-1TmxR4_6d3d8e1a-00d2-4f50-bea1-f148f8e3b89e.jpg",
+            "paragraph": "<h1>Authenticity<\/h1><p>Our business is built on trust, and every item we sell is guaranteed authentic.<\/p><p><span style=\"text-decoration:underline\">Learn more<\/span><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_DQDH4w",
+        "card_9ihqBF"
+      ],
+      "settings": {
+        "body_text": "#ffffff"
+      }
+    },
+    "1712515990379f2ae8": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_rUJrdk": {
+          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_rUJrdk"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "ara_video_GaEzUN",
+    "ara_brands_nFpRqK",
+    "ara_insta_t4b44U",
+    "ara_icons_grid_Btq8cn",
+    "related-products",
+    "custom_marquee_7kgAzj",
+    "collapsible_content_UC4Qay",
+    "multicolumn_HKCYaN",
+    "ara_table_Tj7r9R",
+    "ara_marque_btm_ffn39m",
+    "custom_grid_section_VAiAyN",
+    "1712515990379f2ae8"
   ]
 }

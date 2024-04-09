@@ -1,0 +1,194 @@
+<div class="pf-c" style="--c-xs:12;--c-md:12;--c-lg:12">
+  <div data-pf-type="Column" class="sc-XxNYO eWQzGj pf-196_">
+    <div data-pf-type="Custom.HTML" class="pf-197_" store="[object Object]">
+      <div class="container__logo-carousel" style="background: #333333;">
+
+        <div class="logo-carousel animate desktop  animate mobile">
+
+
+          <div class="logo-flex  w-50 ">
+
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_74-removebg-preview.png?v=1712151279">
+              <span>Da Air Jordan a Yeezy, passando per Hogan: il meglio del footwear ad un prezzo rivoluzionario! Lusso accessibile per tutti gli appassionati.</span>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_71.png?v=1712150328">
+              <span>Sneakers di lusso a prezzi incredibili! Da Nike a Gucci, il rivenditore Inglese che sta cambiando le regole del gioco anche nel mercato italiano.</span>
+            </div>
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_72.png?v=1712150395">
+              <span>Da Nike a Balenciaga: le scarpe dei tuoi sogni ad un prezzo che non crederai! Rivoluzione nel mondo delle calzature di alta moda.</span>
+            </div>
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_73.png?v=1712150564">
+              <span>Risparmia senza rinunciare allo stile! Adidas, Nike, Hogan e molto altro ancora a prezzi rivoluzionari grazie al nostro rivenditore.</span>
+            </div>
+          </div>
+
+
+
+
+
+
+          <div class="logo-flex w-50 display">
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_74-removebg-preview.png?v=1712151279">
+              <span>Da Air Jordan a Yeezy, passando per Hogan: il meglio del footwear ad un prezzo rivoluzionario! Lusso accessibile per tutti gli appassionati.</span>
+            </div>
+
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_71.png?v=1712150328">
+              <span>Sneakers di lusso a prezzi incredibili! Da Nike a Gucci, il rivenditore Inglese che sta cambiando le regole del gioco anche nel mercato italiano.</span>
+            </div>
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_72.png?v=1712150395">
+              <span>Da Nike a Balenciaga: le scarpe dei tuoi sogni ad un prezzo che non crederai! Rivoluzione nel mondo delle calzature di alta moda.</span>
+            </div>
+            <div class="carousel-item">
+              <img src="https://cdn.shopify.com/s/files/1/0594/6815/2902/files/Screenshot_73.png?v=1712150564">
+              <span>Risparmia senza rinunciare allo stile! Adidas, Nike, Hogan e molto altro ancora a prezzi rivoluzionari grazie al nostro rivenditore.</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <style>
+        .container__logo-carousel {
+    overflow: hidden;
+    position: relative;
+    
+}
+        .container__logo-carousel {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .carousel-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 300px;
+          text-align: center;
+          flex-direction: column;
+        }
+
+        .carousel-item span {
+          word-break: break-word;
+          color: #fff;
+          line-height:20px;
+        }
+
+        .carousel-item img {
+          max-width: 250px;
+          width: 100%;
+        }
+
+        .logo-carousel {
+          display: flex;
+        }
+
+        .logo-flex {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
+        .logo-flex.w-50.display {
+          display: none;
+        }
+
+
+        @keyframes marquee {
+          0% {
+            left: 0;
+          }
+
+          100% {
+            left: -100%;
+          }
+        }
+
+        @keyframes mobile-marquee {
+          0% {
+            left: 0;
+          }
+
+          100% {
+            left: -250%
+          }
+        }
+
+        @media screen and (min-width: 641px) {
+          .animate.desktop {
+            width: 200%;
+            animation: marquee 30s linear infinite;
+            overflow: hidden;
+            position: relative;
+          }
+
+          .animate.desktop .logo-flex.w-50 {
+            flex-wrap: nowrap;
+          }
+
+          .animate.desktop .logo-flex.w-50.display {
+            display: flex
+          }
+        }
+
+        @media screen and (max-width: 640px) {
+
+          .carousel-item {
+            width: 200px;
+          }
+.ara-table {
+    margin-bottom: 20px;
+}
+          .animate.mobile {
+            width: 500%;
+            animation: mobile-marquee 30s linear infinite;
+            overflow: hidden;
+            position: relative;
+          }
+
+          .animate.mobile .logo-flex.w-50 {
+            flex-wrap: nowrap;
+          }
+
+          .animate.mobile .logo-flex.w-50.display {
+            display: flex
+          }
+        }
+
+
+        .animate:hover {
+          animation-play-state: paused;
+        }
+      </style>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Ara Marquee Bottom",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Ara Marquee Bottom"
+      }
+    ]
+  }
+{% endschema %}

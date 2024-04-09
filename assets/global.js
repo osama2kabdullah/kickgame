@@ -959,6 +959,7 @@ class VariantSelects extends HTMLElement {
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
+    // this.filterImageChange();
     this.updateVariantStatuses();
 
     if (!this.currentVariant) {
@@ -972,7 +973,21 @@ class VariantSelects extends HTMLElement {
       this.updateShareUrl();
     }
   }
-
+filterImageChange(){
+  console.log(this.currentVariant.featured_image)
+  if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt){
+    document.querySelectorAll('[thumbnail-alt]').forEach((img)=>{
+      img.style.display = 'none'
+    })
+    const currentImgAlt = this.currentVariant.featured_image.alt
+    const thumnailSelector = `[thumbnail-alt = '${currentImgAlt}']`
+    document.querySelectorAll(thumnailSelector).forEach(img => img.style.display = 'block')
+  }else{
+     document.querySelectorAll('[thumbnail-alt]').forEach((img)=>{
+      img.style.display = 'block'
+    })
+  }
+}
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select, fieldset'), (element) => {
       if (element.tagName === 'SELECT') {

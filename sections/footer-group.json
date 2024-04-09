@@ -4,12 +4,55 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "brand_information_MdwWEt": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "link_list_CXzkKw": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Customer Service<\/strong>",
+            "menu": "customer-service"
+          }
+        },
+        "link_list_izMqEE": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Information<\/strong>",
+            "menu": "information"
+          }
+        },
+        "link_list_WFer6w": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Top Collections<\/strong>",
+            "menu": "top-collections"
+          }
+        },
+        "text_GqFqJF": {
+          "type": "text",
+          "settings": {
+            "heading": "<strong>Newsletter<\/strong>",
+            "subtext": ""
+          }
+        }
+      },
+      "block_order": [
+        "brand_information_MdwWEt",
+        "link_list_CXzkKw",
+        "link_list_izMqEE",
+        "link_list_WFer6w",
+        "text_GqFqJF"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": true,
-        "show_social": true,
+        "show_social": false,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,

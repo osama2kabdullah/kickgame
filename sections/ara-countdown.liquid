@@ -1,0 +1,151 @@
+{% comment %} <style>
+  .primary-gradient {
+    background: linear-gradient(45deg, #3D348B, #3D348B, #9E388B, #DF4F79, #DF4F79);
+    background-size: 400% 400%;
+    animation: primaryGradient 5s ease infinite;
+}
+  @media screen and (max-width: 991px){
+.navbar-smaller {
+    flex-direction: row;
+    justify-content: center;
+}
+    .navbar-sale-inner-2 {
+    font-size: 1rem;
+}
+  }
+
+.navbar-sale-text {
+    color: var(--white);
+    margin-top: 1px;
+    font-weight: 800;
+}
+  .div-block-981 {
+    grid-column-gap: .5rem;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+  .holiday-clock {
+    color: #2a2552;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+  .box-3 {
+    background-color: #fff;
+    border-radius: 2px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 3px;
+    font-size: 12px;
+    line-height: 20px;
+    display: flex;
+}
+  .text-block-217 {
+    color: #fff;
+    padding-left: .15rem;
+    padding-right: .15rem;
+    font-weight: 800;
+}
+  .clock-number-2 {
+    font-size: .85rem;
+    font-weight: 800;
+    line-height: 1;
+}
+  .clock-label-2 {
+    letter-spacing: 0;
+    text-transform: uppercase;
+    font-size: .5rem;
+    line-height: 1;
+}
+.navbar-sale-inner-2 {
+    grid-column-gap: .5rem;
+    color: var(--primary-purple);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    display: flex;
+    position: relative;
+}
+
+.navbar-smaller {
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    display: flex;
+}
+</style>
+<div class="navbar-countdown primary-gradient is-centered"><div class="navbar-smaller"><div class="navbar-sale-inner-2"><div class="navbar-sale-text">SAVE UP TO 56% WITH 4 FREE GIFTS</div></div><div class="div-block-981"><div id="js-clock" class="holiday-clock"><div class="box-3 hide"><div id="js-clock-days" class="clock-number-2">00</div><div class="clock-label-2">Days</div></div><div class="text-block-217 hide">:</div><div class="box-3"><div id="js-clock-hours" class="clock-number-2">17</div><div class="clock-label-2">Hrs</div></div><div class="text-block-217">:</div><div class="box-3"><div id="js-clock-minutes" class="clock-number-2">42</div><div class="clock-label-2">Min</div></div><div class="text-block-217">:</div><div class="box-3"><div id="js-clock-seconds" class="clock-number-2">27</div><div class="clock-label-2">Sec</div></div><div class="hide w-embed w-script">
+  <script>
+(function () {
+
+    // Function to get the next midnight time
+    function getNextMidnight() {
+        var midnight = new Date();
+        midnight.setHours(24,0,0,0);
+        return midnight;
+    }
+
+    var deadline = getNextMidnight();
+
+    function pad(num, size) {
+        var s = "0" + num;
+        return s.substr(s.length - size);
+    }
+
+    function getTimeRemaining(endtime) {
+        let total = Date.parse(endtime) - Date.parse(new Date())
+        let seconds = Math.floor((total / 1000) % 60)
+        let minutes = Math.floor((total / 1000 / 60) % 60)
+        let hours = Math.floor((total / (1000 * 60 * 60)) % 24)
+        let days = Math.floor(total / (1000 * 60 * 60 * 24))
+
+        return { total, days, hours, minutes, seconds };
+    }
+
+    function clock(id, endtime) {
+        let clockDiv = document.getElementById(id)
+        let days = document.getElementById(id + '-days')
+        let hours = document.getElementById(id + '-hours')
+        let minutes = document.getElementById(id + '-minutes')
+        let seconds = document.getElementById(id + '-seconds')
+
+        var timeinterval = setInterval(function () {
+            var time = getTimeRemaining(endtime);
+
+            if (time.total <= 0) {
+                clearInterval(timeinterval);
+                clockDiv.style.display = 'none'; // hide the timer
+            } else {
+                days.innerHTML = pad(time.days, 2);
+                hours.innerHTML = pad(time.hours, 2);
+                minutes.innerHTML = pad(time.minutes, 2);
+                seconds.innerHTML = pad(time.seconds, 2);
+            }
+        }, 1000);
+    }
+
+    clock('js-clock', deadline);
+})();
+</script></div></div></div></div></div>
+{% schema %}
+  {
+    "name": "Ara countdown",
+    "settings": [],
+    "presets": [
+      {
+         "name": "Ara countdown"
+      }
+    ]
+  }
+{% endschema %} {% endcomment %}

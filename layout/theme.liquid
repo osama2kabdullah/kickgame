@@ -288,8 +288,434 @@
     {{ 'custom-development.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'custom-development.js' | asset_url }}" defer="defer"></script>
 
-    {% include 'pagefly-app-header' %}
-  </head>
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include 'pagefly-app-header' %}</head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -299,7 +725,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       {%- render 'cart-drawer' -%}
     {%- endif -%}
-
+{% render 'snip-timer' %}
     {% sections 'header-group' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
@@ -354,7 +780,40 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
+<script>
+document.querySelectorAll('.box_design_swatch a').forEach((e) => {
+  e.addEventListener('click', function(event) {
+    event.preventDefault();
+  });
+});
 
+   // Get the current website URL
+  var currentURL = window.location.href;
+
+  // Get all links with class 'f_swatch'
+  var links = document.querySelectorAll('a.f_swatch');
+
+  // Loop through each link
+  links.forEach(function(link) {
+    // Check if the link href matches the current URL
+    if (link.getAttribute('href') === currentURL) {
+      // If matched, add the 'active_border' class
+      link.classList.add('active_border');
+    }
+  });
+  window.onscroll = function() {myFunction()};
+
+  var fixedDiv = document.querySelector("button.sc-hxaKAp.ciOUVe.pf-134_.pf-button-1");
+  var sticky = fixedDiv.offsetTop;
+
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      fixedDiv.classList.add("fixed");
+    } else {
+      fixedDiv.classList.remove("fixed");
+    }
+  }
+</script>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}

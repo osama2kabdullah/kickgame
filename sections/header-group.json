@@ -2,42 +2,166 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "announcement-bar": {
-      "type": "announcement-bar",
+    "custom_marquee_wzmKqd": {
+      "type": "custom-marquee",
       "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
+        "text_7G7FxK": {
+          "type": "text",
           "settings": {
-            "text": "Welcome to our store",
-            "link": ""
+            "marquee_text": "<strong>[FREE SHIPPING WORLDWIDE]<\/strong>"
+          }
+        },
+        "text_QJ3V7d": {
+          "type": "text",
+          "settings": {
+            "marquee_text": "<strong>[30-DAY RETURNS]<\/strong>"
+          }
+        },
+        "text_A7hm39": {
+          "type": "text",
+          "settings": {
+            "marquee_text": "<strong>[FREE SHIPPING WORLDWIDE]<\/strong>"
           }
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "text_7G7FxK",
+        "text_QJ3V7d",
+        "text_A7hm39"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
-        "show_line_separator": true,
-        "show_social": false,
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "enable_country_selector": false,
-        "enable_language_selector": false
+        "scroll_direction": "ltr",
+        "devide_style": "dot",
+        "speed": 60,
+        "pause_on_hover": false,
+        "horizontal_space": "xlarge-x-2",
+        "text_size": "text-size--large",
+        "color_background_main": "#000000",
+        "color_text_main": "#fff",
+        "remove_top_margin": false,
+        "remove_bottom_margin": false
       }
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "link_8tVCFV": {
+          "type": "link",
+          "settings": {
+            "linklist_title": "Home",
+            "link": "",
+            "text_color": "#000000"
+          }
+        },
+        "link_4G6MGF": {
+          "type": "link",
+          "settings": {
+            "linklist_title": "New Arrivals",
+            "link": "",
+            "text_color": "#000000"
+          }
+        },
+        "link_693DtD": {
+          "type": "link",
+          "settings": {
+            "linklist_title": "Best Sellers",
+            "link": "",
+            "text_color": "#000000"
+          }
+        },
+        "mega_menu_RFGChH": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Sneakers",
+            "first_linklist_title": "Shop by Brand",
+            "first_menu": "customer-service",
+            "second_linklist_title": "Shop by Style",
+            "second_menu": "customer-service",
+            "third_linklist_title": "Best Sellers",
+            "product_list": [
+              "black-leather-bag",
+              "blue-silk-tuxedo",
+              "classic-leather-jacket",
+              "chequered-red-shirt",
+              "classic-varsity-top",
+              "dark-denim-top"
+            ]
+          }
+        },
+        "mega_menu_BxapD6": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Apparel",
+            "first_linklist_title": "Shop by Brand",
+            "first_menu": "customer-service",
+            "second_linklist_title": "Shop by Style",
+            "second_menu": "customer-service",
+            "third_linklist_title": "Best Sellers",
+            "product_list": [
+              "black-leather-bag",
+              "blue-silk-tuxedo",
+              "classic-leather-jacket",
+              "chequered-red-shirt",
+              "classic-varsity-top",
+              "dark-denim-top"
+            ]
+          }
+        },
+        "mega_menu_ihCxXV": {
+          "type": "mega_menu",
+          "settings": {
+            "menu_title": "Accessories",
+            "first_linklist_title": "Collectibles",
+            "first_menu": "customer-service",
+            "second_linklist_title": "",
+            "second_menu": "",
+            "third_linklist_title": "Best Sellers",
+            "product_list": [
+              "black-leather-bag",
+              "blue-silk-tuxedo",
+              "classic-leather-jacket",
+              "chequered-red-shirt",
+              "classic-varsity-top",
+              "dark-denim-top"
+            ]
+          }
+        },
+        "list_menu_HmmEfM": {
+          "type": "list_menu",
+          "settings": {
+            "menu_title": "Discover",
+            "menu": "customer-service"
+          }
+        },
+        "link_JY46kJ": {
+          "type": "link",
+          "settings": {
+            "linklist_title": "SALE",
+            "link": "",
+            "text_color": "#dd1d1d"
+          }
+        }
+      },
+      "block_order": [
+        "link_8tVCFV",
+        "link_4G6MGF",
+        "link_693DtD",
+        "mega_menu_RFGChH",
+        "mega_menu_BxapD6",
+        "mega_menu_ihCxXV",
+        "list_menu_HmmEfM",
+        "link_JY46kJ"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 20,
@@ -46,7 +170,7 @@
     }
   },
   "order": [
-    "announcement-bar",
+    "custom_marquee_wzmKqd",
     "header"
   ]
 }

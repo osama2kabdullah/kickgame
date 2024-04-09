@@ -100,7 +100,11 @@
       {%- endif -%}
       {%- for media in product.media -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
-          <li
+          <li 
+            {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and product.selected_or_first_available_variant.featured_image.alt != blank %}
+            style="display:none;"  
+            {% endif %}
+            thumbnail-alt={{ media.alt }}
             id="Slide-{{ section.id }}-{{ media.id }}{{ id_append }}"
             class="product__media-item grid__item slider__slide{% if single_media_visible %} product__media-item--single{% endif %}{% if product.selected_or_first_available_variant.featured_media == null and forloop.index == 1 %} is-active{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if section.settings.hide_variants and variant_images contains media.src %} product__media-item--variant{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
             data-media-id="{{ section.id }}-{{ media.id }}"
@@ -261,6 +265,10 @@
               assign media_index = media_index | plus: 1
             -%}
             <li
+                {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and product.selected_or_first_available_variant.featured_image.alt != blank %}
+            style="display:none;"  
+            {% endif %}
+            thumbnail-alt={{ media.alt }}
               style="width: 100%;"
               id="Slide-Thumbnails-{{ section.id }}-{{ forloop.index }}{{ id_append }}"
               class="thumbnail-list__item slider__slide{% if section.settings.hide_variants and variant_images contains media.src %} thumbnail-list_item--variant{% endif %}"

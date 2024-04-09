@@ -1,75 +1,104 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "custom_bannar_sldider_HJgzJn": {
+      "type": "custom-bannar-sldider",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "slide_r8cqMa": {
+          "type": "slide",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "mobile_image": "shopify:\/\/shop_images\/desktop_6520388d-bbd2-49dc-ba18-336a24902f90.webp",
+            "desktop_image": "shopify:\/\/shop_images\/desktop_5733e688-89b3-4b6f-a2d1-1a673915abb2.webp",
+            "bannar_link": ""
           }
         },
-        "button": {
-          "type": "buttons",
+        "slide_MNLxiV": {
+          "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "mobile_image": "shopify:\/\/shop_images\/Air_Max_Series_Desktop_1.webp",
+            "desktop_image": "shopify:\/\/shop_images\/Air_Max_Series_Desktop_1.webp",
+            "bannar_link": ""
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "slide_r8cqMa",
+        "slide_MNLxiV"
       ],
+      "settings": {}
+    },
+    "custom_featured_product_Rq8B4p": {
+      "type": "custom-featured-product",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "collection": "air-force-1",
+        "products_to_show": 5,
+        "row": 1
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "custom_featured_product_edxj6j": {
+      "type": "custom-featured-product",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
+        "collection": "nike-nike-shoes-donna-in-evidenza",
+        "products_to_show": 5,
+        "row": 1
+      }
+    },
+    "custom_featured_product_dwRgBQ": {
+      "type": "custom-featured-product",
+      "settings": {
+        "collection": "nike-nike-shoes-donna-in-evidenza",
+        "products_to_show": 5,
+        "row": 1
+      }
+    },
+    "custom_featured_product_84x3n4": {
+      "type": "custom-featured-product",
+      "settings": {
+        "collection": "nike-nike-shoes-donna-in-evidenza",
+        "products_to_show": 5,
+        "row": 1
+      }
+    },
+    "custom_featured_product_qe83bJ": {
+      "type": "custom-featured-product",
+      "settings": {
+        "collection": "nike-nike-shoes-donna-in-evidenza",
+        "products_to_show": 5,
+        "row": 1
+      }
+    },
+    "multi_grid_featured_collection_ddReTk": {
+      "type": "multi-grid-featured-collection",
+      "settings": {
+        "collection": "off-white",
         "products_to_show": 8,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
+        "row": 2
+      }
+    },
+    "text_based_collection_94UccM": {
+      "type": "text-based-collection",
+      "settings": {
+        "collection_list": [
+          "air-force-1",
+          "fear-of-god",
+          "air-jordan-1",
+          "nike-dunk",
+          "off-white",
+          "yeezy"
+        ],
+        "title": "Top collection",
+        "bg_color": "#000000",
+        "text_color": "#ffffff"
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "custom_bannar_sldider_HJgzJn",
+    "custom_featured_product_Rq8B4p",
+    "custom_featured_product_edxj6j",
+    "custom_featured_product_dwRgBQ",
+    "custom_featured_product_84x3n4",
+    "custom_featured_product_qe83bJ",
+    "multi_grid_featured_collection_ddReTk",
+    "text_based_collection_94UccM"
   ]
 }

@@ -448,6 +448,47 @@ table:not([class]) th {
 }
 
 @media screen and (max-width: 749px) {
+  .grd-in {
+    grid-template-columns: auto !important;
+    width: 84% !important;
+}
+
+.sngl {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+}
+
+.imm img {
+    width: 70px !important;
+}
+
+.hg {}
+
+.hg h3 {
+    text-align: justify !important;
+}
+
+.hg p {
+    text-align: justify !important;
+    word-spacing: -1px;
+}
+  .kuo {
+    gap: 6% !important;
+}
+  .brnds-inner h3 {
+    margin-top: 13px !important;
+    margin-bottom: 39px !important;
+    font-weight: bold;
+    font-size: 17px  !important;
+}
+  .kuo img {
+    max-width: 70px !important;
+    min-width: 70px !important;
+  }
+  .dsk{
+    display:none !important;
+  }
   .small-hide {
     display: none !important;
   }
@@ -937,6 +978,9 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (max-width: 749px) {
+  .mblr{
+    display:block !important;
+  }
   .grid__item.slider__slide--full-width {
     width: 100%;
     max-width: none;
@@ -3537,4 +3581,76 @@ details-disclosure > details {
   .animate--hover-vertical-lift .button:not([disabled]).button--secondary:hover:after {
     --border-offset: 0px; /* Prevent the border from growing on buttons when this effect is on. */
   }
+}
+.tolp img {
+    width: 130px;
+    object-fit: cover;
+    object-position: center center;
+    height: 23px;
+    aspect-ratio: unset;
+}
+
+.tolp h3 {
+    font-weight: 500;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+.tolp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img.sc-eLwHnm.kKIkeB.pf-22_.pf-image-1 {
+    width: 120px;
+    object-fit: cover;
+    object-position: center center;
+    height: auto;
+    aspect-ratio: unset;
+}
+
+.btrm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h3.sc-h3 {
+    font-size: 14px;
+}
+img.sc-eLwHnm.kKIkeB.pf-17_.pf-image-1 {
+    width: 130px;
+    object-fit: cover;
+    object-position: center center;
+    height: 23px;
+    aspect-ratio: unset;
+    margin-top: -3px;
+}
+product-info span.price-item.price-item--regular {
+    color: #000;
+    font-size: 28px;
+    font-weight: 600;
+    margin-left: 2px;
+    margin-right: 3px;
+}
+.price.price--large.price--on-sale.price--show-badge {
+    display: flex;
+    align-items: baseline;
+}
+.tth {
+display: flex;
+    align-items: center;
+    margin-top: -20px !important;
+    gap: 9px;
+    margin-bottom: -21px !important;
+}
+
+p.sc-fWCJzd.hMtPyx.pf-34_.pf-text-1 {
+    font-size: 18px;
+    text-align: left;
+    padding-left: 6px;
+    font-weight: 600;
 }

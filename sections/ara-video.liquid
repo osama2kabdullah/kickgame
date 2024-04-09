@@ -1,0 +1,528 @@
+<style>
+  .video-container {
+    width: 100%;
+    border-radius: 20px;
+    height: 40rem;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .video-wrapper {
+    padding-right: 15px;
+  }
+
+  video[poster] {
+    object-fit: cover;
+  }
+
+  .video-container .video-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .play-button-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+
+  .play-button-wrapper .circle-play-b {
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .play-button-wrapper .circle-play-b svg {
+    width: 100px;
+    height: 100px;
+    fill: #fff;
+    stroke: #fff;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+
+  ul.slick-dots button {
+    display: none;
+
+  }
+
+  ul.slick-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0px;
+  }
+
+  ul.slick-dots li {
+    list-style: none;
+
+    .slick-dots li {
+      margin: 0;
+    }
+
+    .slick-dots {
+      margin-top: 50px;
+    }
+
+    .slick-dots li button:before,
+    .slick-dots li.slick-active button:before {
+      color: transparent;
+      opacity: 1;
+    }
+
+    .slick-dots li button:before {
+      margin-top: 5px;
+      background-color: transparent;
+      border: 1px solid rgb(90, 90, 90);
+      border-radius: 20%;
+      display: inline-block;
+      height: 5px;
+      width: 10px;
+    }
+
+    .slick-dots li.slick-active button:before {
+      background-color: rgb(26, 24, 24);
+    }
+
+    ;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    background: #000;
+    opacity: .2;
+  }
+
+  li.slick-active {
+    opacity: 1 !important;
+  }
+
+  .keen-slider.slick-initialized.slick-slider.slick-dotted {
+    width: 90%;
+    margin: auto;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .slick-initialized .slick-slide {
+    display: block;
+  }
+
+  .next_caro.slick-arrow,
+  .next_caro {
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 0;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 42%;
+    right: 6%;
+  }
+
+  .ara-slider {
+    position: relative;
+  }
+
+  .previous_caro.slick-arrow,
+  .previous_caro {
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 0;
+    cursor: pointer;
+    z-index: 10;
+    position: absolute;
+    top: 42%;
+    left: 5%;
+  }
+
+  /* .none{
+    display:none;
+  } */
+  h3.sc-Galmp.gsmCse.pf-299_.pf-heading-1-h3 {
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+p.sc-fWCJzd.hMtPyx.pf-301_.pf-text-1 {
+    text-align: center;
+}
+  @media only screen and (max-width:700px) {
+    .slick-slide {
+      /* min-width:240px !important; */
+    }
+
+    .slick-track {
+      padding-left: 100%;
+    }
+h3.sc-Galmp.gsmCse.pf-299_.pf-heading-1-h3 {
+    font-size: 24px !important;
+    margin-left: -93px !important;
+}
+    p.sc-fWCJzd.hMtPyx.pf-301_.pf-text-1 {
+    text-align: center;
+    margin-left: -80px;
+}
+    .ara-slider {
+      position: relative;
+      margin-left: 24%;
+      margin-bottom:92px;
+    }
+
+    .keen-slider.slick-initialized.slick-slider.slick-dotted {
+      padding: 0 !important;
+      width: 100% !important;
+    }
+
+    .video-wrapper {
+      padding-right: 3px !important;
+      padding-left: 3px !important;
+    }
+
+    .video-container {
+      height: 32rem !important;
+    }
+
+    .slick-arrow {
+      width: 32px !important;
+      height: 32px !important;
+      line-height: 0;
+      cursor: pointer;
+      z-index: 10;
+      position: absolute;
+      top: 108% !important;
+      right: 32% !important;
+    }
+
+    ul.slick-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      position: absolute;
+      z-index: 9;
+      bottom: -20.5%;
+      left: 0% !important;
+    }
+
+    .previous_caro.slick-arrow,
+    .previous_caro {
+      left: -4% !important;
+    }
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+<div class="ara-slider none">
+  <h3 data-pf-type="Heading2" class="sc-Galmp gsmCse pf-299_ pf-heading-1-h3">Celebrità e Noi: Un'Unione per lo Stile delle Star!</h3>
+  <p class="sc-fWCJzd hMtPyx pf-301_ pf-text-1" data-pf-type="Paragraph3">Scopri l' hype che c'è dietro:</p>
+  <div class="keen-slider">
+
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/91ba122315da4db6add3fee63f35f2fd.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/2bcf9defb55248dbb341e045c28a75a0.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/fe80dd1e9e004972942456d90635cdb9.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/c07b748da8fa4f1dbc68c09f64f848a0.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/51859e7e15284e7c9fafc8a0820fe337.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-wrapper">
+      <div class="video-container" id="video-container">
+        <video controls loop muted autoplay="true" class="video" preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/63842c937f7f4f2d93eb7a84a78bb176.mp4" type="video/mp4">
+        </video>
+
+        <div class="play-button-wrapper">
+          <div title="Play video" class="play-gif circle-play-b">
+            <!-- SVG Play Button -->
+            <svg viewBox="0 0 200 200" fill="none" class="needsclick">
+              <mask id="qA-653cdbb41ab0a2e74b96f725" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200"
+                maskType="alpha">
+                <path fill="#fff" fill-rule="evenodd"
+                  d="M200 0H0v200h200V0zM100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50z">
+                </path>
+              </mask>
+              <g mask="url(#qA-653cdbb41ab0a2e74b96f725)" fill-opacity="1">
+                <circle fill-opacity="1" fill="#1C2545" cx="100" cy="100" r="50" class="pulse"></circle>
+                <circle stroke-opacity="1" stroke="#1C2545" stroke-width="5" cx="100" cy="100" r="47.5" class="shine">
+                </circle>
+              </g>
+              <path fill="#1C2545" fill-opacity="1" fill-rule="evenodd"
+                d="M100 150c27.614 0 50-22.386 50-50s-22.386-50-50-50-50 22.386-50 50 22.386 50 50 50zm22-50L89 81v38l33-19z">
+              </path>
+              <path fill="#FFFFFF" d="M89 119V81l33 19-33 19z"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="next_caro"> <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="16" fill="#000000" fill-opacity="100"></circle>
+      <path d="M13.5 8.5L21 16L13.5 23.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></path>
+    </svg></div>
+  <div class="previous_caro"> <svg width="100%" height="100%" viewBox="0 0 32 32" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="16" fill="#000000" fill-opacity="100"></circle>
+      <path d="M18.5 8.5L11 16L18.5 23.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="square"></path>
+    </svg></div>
+</div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  
+    const videos = document.querySelectorAll("video");
+    const circlePlayButtons = document.querySelectorAll(".circle-play-b");
+
+    // function togglePlay(video) {
+    //     if (video.paused || video.ended) {
+    //         video.play();
+    //     } else {
+    //         video.pause();
+    //     }
+    // }
+
+    function handlePlay(index) {
+        circlePlayButtons[index].style.opacity = 0;
+    }
+
+    function handlePause(index) {
+        circlePlayButtons[index].style.opacity = 1;
+    }
+
+    circlePlayButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+       if (videos[index].requestFullscreen) {
+            videos[index].requestFullscreen();
+           videos[index].removeAttribute("muted");
+        } else if (videos[index].mozRequestFullScreen) { // Firefox
+            videos[index].mozRequestFullScreen();
+           videos[index].removeAttribute("muted");
+        } else if (videos[index].webkitRequestFullscreen) { // Chrome, Safari and Opera
+            videos[index].webkitRequestFullscreen();
+           videos[index].removeAttribute("muted");
+        } else if (videos[index].msRequestFullscreen) { // IE/Edge
+            videos[index].msRequestFullscreen();
+           videos[index].removeAttribute("muted");
+        }else{
+         videos[index].setAttribute("muted");
+        }
+    });
+    });
+
+    videos.forEach((video, index) => {
+        video.addEventListener("click", () => handlePlay(index));
+        video.addEventListener("pause", () => handlePause(index));
+    });
+
+  // document.querySelector(".none").style.display = 'block';
+  
+});
+
+
+
+  $(document).ready(function(){
+$('.keen-slider').slick({
+   dots: true,
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  nextArrow: '.next_caro',
+  prevArrow: '.previous_caro',
+  //   autoplay="true": true,
+  // autoplay="true"Speed: 2000,
+   responsive: [
+    {
+      breakpoint: 780,
+      settings: {
+        slidesToShow: 1.5
+      }
+    }
+  ]
+})
+  })
+</script>
+{% schema %}
+  {
+    "name": "Ara Video",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Ara Video"
+      }
+    ]
+  }
+{% endschema %}
