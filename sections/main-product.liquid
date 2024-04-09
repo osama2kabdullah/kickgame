@@ -7,6 +7,12 @@
     animation: greendot 2s linear infinite;
     transform: scale(1);
   }
+  .collapsible-slider-card {
+    background: #f8f9fa;
+    padding: 10px;
+    font-size: 14px;
+    line-height: normal;
+  }
   .gray-dot {
     background: #ad3232;
     height: 12px;
@@ -388,6 +394,101 @@
                     <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
                       {{ block.settings.content }}
                       {{ block.settings.page.content }}
+                    </div>
+                  </details>
+                </div>
+              {%- when 'review_collapsible' -%}
+                <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                    <summary>
+                      <div class="summary__title">
+                        <h2 class="h4 accordion__title inline-richtext">
+                          {{ block.settings.heading | default: block.settings.page.title | escape }}
+                        </h2>
+                      </div>
+                      <svg style="
+                        background: #e8e8e8;
+                        height: 18px;
+                        width: 18px;
+                        border-radius: 22px;
+                        padding: 4px;
+                        top: 13px;
+                    " aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                      </svg>
+                    </summary>
+                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+
+                      {% style %}
+                         .splide-{{ block.id }}-{{ section.id }} .splide__arrow--prev {
+                          left: 0em;
+                         }
+                         .splide-{{ block.id }}-{{ section.id }} .splide__track {
+                          margin-left: 30px !important;
+                          margin-right: 30px !important;
+                         }
+                         .splide-{{ block.id }}-{{ section.id }} .splide__arrow--next {
+                          right: 0em;
+                         }
+                      {% endstyle %}
+                      
+                      <div class="splide splide-{{ block.id }}-{{ section.id }}" aria-label="Splide Basic HTML Example">
+                        <div class="splide__track">
+                          <div class="splide__list">
+                            
+                            {% liquid
+                              assign star_img = "star_img_"
+                              assign varified = "varified_"
+                              assign review = "review_"
+                            %}
+                            {% for i in (1..10) %}
+                              {% liquid
+                                assign star_imag = star_img | append: i
+                                assign varified_status = varified | append: i
+                                assign review_text = review | append: i
+                              %}
+                              {% if block.settings[star_imag] != blank %}
+                                <div class="splide__slide">
+                                  <div class="collapsible-slider-card">
+                                    <div>
+                                      {% if block.settings[star_imag] != blank %}
+                                        {{ block.settings[star_imag] | image_url: width: 300 | image_tag: style: "width: 100px; height: auto; margin: auto 0;" }}
+                                        &nbsp;
+                                      {% endif %}
+                                      {% if block.settings[varified_status] == true %}
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                                        </svg> 
+                                        <span>Verified</span>
+                                      {% endif %}
+                                    </div>
+                                    {{ block.settings[review_text] }}
+                                  </div>
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <script>
+                        document.addEventListener( 'DOMContentLoaded', function() {
+                          var splide = new Splide( '.splide-{{ block.id }}-{{ section.id }}', {
+                            drag: true,
+                            perPage: 3,
+                            gap: 10,
+                            pagination: false,
+                            breakpoints: {
+                              740: {
+                                perPage: 1,
+                              },
+                            },
+                          });
+                          splide.mount();
+                        } );
+                      </script>
+
                     </div>
                   </details>
                 </div>
@@ -813,7 +914,7 @@
                   {{ 'component-complementary-products.css' | asset_url | stylesheet_tag }}
                   {%- if block.settings.enable_quick_add -%}
                     {{ 'quick-add.css' | asset_url | stylesheet_tag }}
-                    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+                    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></>
                   {%- endif -%}
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
@@ -1492,6 +1593,219 @@
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
         }
+      ]
+    },
+    {
+      "type": "review_collapsible",
+      "name": "Review collapsible",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Collapsible row",
+          "info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
+          "label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label"
+        },
+        {
+          "type": "header",
+          "content": "Review 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_1",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_1",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_1",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_2",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_2",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_2",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_3",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_3",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_3",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 4"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_4",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_4",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_4",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 5"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_5",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_5",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_5",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 6"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_6",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_6",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_6",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 7"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_7",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_7",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_7",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 8"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_8",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_8",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_8",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 9"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_9",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_9",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_9",
+          "label": "Review"
+        },
+        {
+          "type": "header",
+          "content": "Review 10"
+        },
+        {
+          "type": "image_picker",
+          "id": "star_img_10",
+          "label": "Review Star"
+        },
+        {
+          "type": "checkbox",
+          "id": "varified_10",
+          "label": "Verified",
+          "default": true
+        },
+        {
+          "type": "richtext",
+          "id": "review_10",
+          "label": "Review"
+        } 
       ]
     },
     {
